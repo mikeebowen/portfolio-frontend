@@ -8,7 +8,9 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand"
-       [routerLink]="['/']">Gryllidae Creations</a>
+       [routerLink]="['/']">
+      <img src="../../assets/images/grasshopper-black.png" alt="">
+    </a>
     <div class="collapse navbar-collapse"
          id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -31,13 +33,15 @@
              [routerLinkActiveOptions]="{exact: true}">Projects</a>
         </li>
       </ul>
-      <form class="form-inline my-3 pull-right">
-        <input class="form-control mr-sm-3"
-               type="text"
-               placeholder="Search">
-        <button class="btn btn-success my-3 my-sm-0"
-                type="submit">Search</button>
-      </form>
+      <div class="form-wrapper" role="presentation">
+        <form class="form-inline my-3 pull-right">
+          <input class="form-control mr-sm-3"
+                 type="text"
+                 placeholder="Search">
+          <button class="btn btn-success my-3 my-sm-0"
+                  type="submit">Search</button>
+        </form>
+      </div>
     </div>
   </nav>
 </header>

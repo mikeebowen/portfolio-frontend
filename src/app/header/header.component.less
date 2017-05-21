@@ -1,11 +1,23 @@
 @import "../../variables";
 
 .navbar {
-  background-color: @portfolio-teal-green;
-  opacity: .9;
+  background-color: fade(@portfolio-teal-green, 90%);
   border-radius: 0;
+}
+
+.form-wrapper {
+  opacity: .8;
 }
 
 .nav-link {
   font-size: 3rem;
+  font-family: 'Baloo', cursive;
 }
+
+.navbar-brand {
+  img {
+    height: 200%;
+    margin-top: -1.8rem;
+  }
+}
+
