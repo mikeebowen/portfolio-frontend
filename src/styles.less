@@ -6,20 +6,49 @@ html {
 }
 
 body {
-  margin-top: 60px;
+  margin-top: 59px;
   font-family: 'Ubuntu', sans-serif;
   background-image: url('assets/images/green-cricket-background.jpg');
   background-size: cover;
 }
 
-@media (max-width: 992px) {
+.main-content {
+  background-color: @portfolio-black;
+  height: calc(~"100vh - 109px");
+}
+
+.ballo-font {
+  font-family: 'Baloo', cursive;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+@media (max-width: @md-max-width) {
   body {
-    margin-top: 210px;
+    margin-top: 209px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: @sm-max-width) {
   body {
-    margin-top: 60px;
+    margin-top: 59px;
   }
 }

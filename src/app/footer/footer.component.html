@@ -1,5 +1,8 @@
 <footer>
-  <nav class="navbar navbar-light bg-fade navbar-fixed-bottom">
+  <nav class="navbar navbar-light bg-fade navbar-fixed-bottom"
+       [routerLink]="['/']"
+       [routerLinkActive]="['on-homepage']"
+       [routerLinkActiveOptions]="{exact: true}">
     <ul class="nav justify-content-end">
       <li class="nav-item">
         <a class="nav-link active" [routerLink]="['/']">About Me</a>
