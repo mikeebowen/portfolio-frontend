@@ -1,10 +1,27 @@
 <div class="container-fluid" role="presentation">
   <div class="row" role="presentation">
     <div class="col-xs-8 col-xs-offset-4">
-      <div [@wobble]="fadeInState" (@wobble.done)="reset()" (click)="triggerAnimation()" class="jumbotron jumbotron-fluid">
-          <h1 class="display-3">Gryllidae Creations</h1>
-        <p class="lead">Spicy jalapeno bacon ipsum dolor amet turducken ball tip cupim short ribs chicken shankle. Sirloin pork turkey, tail landjaeger alcatra turducken cow meatball cupim venison pig kielbasa. Swine meatball tenderloin shankle pastrami.</p>
-        <img src="../../assets/images/grasshopper-dark-yellow.png" alt="cricket" class="mx-auto d-block">
+      <div class="jumbotron jumbotron-fluid fly-in-header">
+        <h1 class="display-3" [@fadeInOut]="fadeInOutState1">G</h1>
+        <h1 class="display-3" [@fadeInOut]="fadeInOutState2">r</h1>
+        <h1 class="display-3" [@fadeInOut]="fadeInOutState3">y</h1>
+        <h1 class="display-3" [@fadeInOut]="fadeInOutState4">l</h1>
+        <h1 class="display-3" [@fadeInOut]="fadeInOutState5">l</h1>
+        <h1 class="display-3" [@fadeInOut]="fadeInOutState6">i</h1>
+        <h1 class="display-3" [@fadeInOut]="fadeInOutState7">d</h1>
+        <h1 class="display-3" [@fadeInOut]="fadeInOutState8">a</h1>
+        <h1 class="display-3" [@fadeInOut]="fadeInOutState9">e&nbsp;</h1>
+        <h1 class="display-3" [@fadeInOut]="fadeInOutState10">C</h1>
+        <h1 class="display-3" [@fadeInOut]="fadeInOutState11">r</h1>
+        <h1 class="display-3" [@fadeInOut]="fadeInOutState12">e</h1>
+        <h1 class="display-3" [@fadeInOut]="fadeInOutState13">a</h1>
+        <h1 class="display-3" [@fadeInOut]="fadeInOutState14">t</h1>
+        <h1 class="display-3" [@fadeInOut]="fadeInOutState15">i</h1>
+        <h1 class="display-3" [@fadeInOut]="fadeInOutState16">o</h1>
+        <h1 class="display-3" [@fadeInOut]="fadeInOutState17">n</h1>
+        <h1 class="display-3" [@fadeInOut]="fadeInOutState18">s</h1>
+        <p [@fadeInOut]="fadeInOutState19" class="lead">Spicy jalapeno bacon ipsum dolor amet turducken ball tip cupim short ribs chicken shankle. Sirloin pork turkey, tail landjaeger alcatra turducken cow meatball cupim venison pig kielbasa. Swine meatball tenderloin shankle pastrami.</p>
+        <img  [@fadeInOut]="fadeInOutState20" [@wobble]="wobbleState" (@wobble.done)="resetWobble()" (mouseover)="triggerAnimation()" src="../../assets/images/grasshopper-dark-yellow.png" alt="cricket" class="mx-auto d-block">
       </div>
     </div>
   </div>
