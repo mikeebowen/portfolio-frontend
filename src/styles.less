@@ -6,7 +6,30 @@ html {
 }
 
 body {
+  margin-top: 59px;
   font-family: 'Ubuntu', sans-serif;
   background-image: url('assets/images/green-cricket-background.jpg');
   background-size: cover;
+}
+
+.main-content {
+  margin-top: 59px;
+  background-color: @portfolio-black;
+  height: calc(~"100vh - 109px");
+}
+
+.ballo-font {
+  font-family: 'Baloo', cursive;
+}
+
+@media (max-width: @md-max-width) {
+  body {
+    margin-top: 209px;
+  }
+}
+
+@media (max-width: @sm-max-width) {
+  body {
+    margin-top: 59px;
+  }
 }
