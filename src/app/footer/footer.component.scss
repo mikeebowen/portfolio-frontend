@@ -1,12 +1,14 @@
-@import "../../variables";
+@import '../../variables';
 
 footer {
-  width: 100%;
+  margin-bottom: -4rem;
   opacity: .9;
+  width: 100%;
 }
 
 .nav-link {
-  color: @portfolio-aqua;
+  color: $portfolio-aqua;
+
   &:hover {
     background-color: transparent;
     font-weight: 300;
@@ -14,13 +16,9 @@ footer {
 }
 
 .navbar {
-  margin-bottom: 0;
+  background-color: fade-out($portfolio-dark-green, .1);
   border-radius: 0;
-  background-color: fade(@portfolio-dark-green, 90%);
-}
-
-footer {
-  margin-bottom: -4rem;
+  margin-bottom: 0;
 }
 
 .on-homepage {

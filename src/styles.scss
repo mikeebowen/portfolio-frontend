@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 // Html root default font size should be set at 8px. So 1 rem = 8px.
 html {
@@ -6,29 +6,29 @@ html {
 }
 
 body {
-  margin-top: 59px;
-  font-family: 'Ubuntu', sans-serif;
   background-image: url('assets/images/green-cricket-background.jpg');
   background-size: cover;
+  font-family: 'Ubuntu', sans-serif;
+  margin-top: 59px;
 }
 
 .main-content {
+  background-color: $portfolio-black;
+  height: calc(#{'100vh - 109px'});
   margin-top: 59px;
-  background-color: @portfolio-black;
-  height: calc(~"100vh - 109px");
 }
 
 .ballo-font {
   font-family: 'Baloo', cursive;
 }
 
-@media (max-width: @md-max-width) {
+@media (max-width: $md-max-width) {
   body {
     margin-top: 209px;
   }
 }
 
-@media (max-width: @sm-max-width) {
+@media (max-width: $sm-max-width) {
   body {
     margin-top: 59px;
   }
