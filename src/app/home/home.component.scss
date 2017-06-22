@@ -1,26 +1,29 @@
-@import "../../variables";
+@import '../../variables';
 
 .jumbotron {
+  background-color: fade-out($portfolio-dark-green, .5);
   margin-top: 8rem;
   padding-top: 3rem;
-  background-color: fade(@portfolio-dark-green, 50%);
+
   img {
-    width: 25%;
     margin-left: auto;
     margin-right: auto;
+    width: 25%;
   }
+
   p {
-    color: @portfolio-dark-yellow;
+    color: $portfolio-dark-yellow;
     margin-left: 5rem;
   }
+
   h1 {
-    color: @portfolio-dark-yellow;
+    color: $portfolio-dark-yellow;
     font-family: 'Baloo', cursive;
   }
 }
 
 hr {
-  border: .5rem solid @portfolio-dark-yellow;
+  border: .5rem solid $portfolio-dark-yellow;
   width: 50%;
 }
 

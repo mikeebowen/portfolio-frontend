@@ -1,25 +1,27 @@
-@import "../../variables";
+@import '../../variables';
 
 .navbar {
-  clear: both;
-  background-color: fade(@portfolio-dark-green, 90%);
+  background-color: fade-out($portfolio-dark-green, .1);
   border-radius: 0;
+  clear: both;
+
   a {
+    font-family: $header-font;
     font-size: 4rem;
-    font-family: 'Baloo', cursive;
   }
 }
 
 .form-wrapper {
   opacity: .8;
+
   input {
-    background-color: fade(white, 60%);
+    background-color: fade-out($portfolio-white, .4);
   }
 }
 
 .nav-link {
+  font-family: $header-font;
   font-size: 2.5rem;
-  font-family: 'Baloo', cursive;
 }
 
 .navbar-brand {
