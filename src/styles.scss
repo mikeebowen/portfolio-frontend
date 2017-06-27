@@ -2,13 +2,13 @@
 
 // Html root default font size should be set at 8px. So 1 rem = 8px.
 html {
-  font-size: 8px;
+  font-size: $base-font-size;
 }
 
 body {
   background-image: url('assets/images/green-cricket-background.jpg');
   background-size: cover;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: $default-font;
   margin-top: 59px;
 }
 
