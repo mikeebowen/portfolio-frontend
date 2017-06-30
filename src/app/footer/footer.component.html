@@ -1,5 +1,6 @@
 <footer>
-  <nav class="navbar navbar-light bg-fade navbar-fixed-bottom"
+  <nav class="navbar navbar-light bg-fade "
+       [ngClass]="{'navbar-fixed-bottom': makeFooterSticky}"
        [routerLink]="['/']"
        [routerLinkActive]="['on-homepage']"
        [routerLinkActiveOptions]="{exact: true}">
