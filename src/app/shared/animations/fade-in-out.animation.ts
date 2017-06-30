@@ -8,9 +8,9 @@ import {
 } from '@angular/animations';
 
 export const fadeInOut = trigger('fadeInOut', [
-  state('out', style({ transform: 'animation-name:', opacity: 0 })),
+  state('out', style({ opacity: 0 })),
   transition('out => in', animate(500, keyframes([
-    style({ transform: 'animation-name:', opacity: 0 }),
-    style({ transform: 'animation-name', opacity: 1 }),
+    style({ opacity: 0 }),
+    style({ opacity: 1 }),
   ])))
 ]);

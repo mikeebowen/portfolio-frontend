@@ -4,16 +4,25 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { PostsListComponent } from './posts/posts-list/posts-list.component';
+import { PostComponent } from './posts/post/post.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
-    children: []
+    component: HomeComponent
   },
   {
     path: 'blog',
-    component: PostsListComponent
+    children: [
+      {
+        path: '',
+        component: PostsListComponent
+      },
+      {
+        path: ':id',
+        component: PostComponent
+      }
+    ]
   },
   {
     path: 'projects',

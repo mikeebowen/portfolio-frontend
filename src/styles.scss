@@ -1,24 +1,27 @@
 @import 'variables';
 
-// Html root default font size should be set at 8px. So 1 rem = 8px.
 html {
   font-size: $base-font-size;
 }
 
 body {
-  background-image: url('assets/images/green-cricket-background.jpg');
+  background: $portfolio-very-light-gray url('assets/images/green-cricket-background.jpg');
   background-size: cover;
   font-family: $default-font;
-  margin-top: 59px;
+  padding-top: 59px;
 }
 
 .main-content {
-  background-color: $portfolio-black;
-  height: calc(#{'100vh - 109px'});
-  margin-top: 59px;
+  background-color: fade-out($portfolio-dark-green, .5);
+  min-height: calc(#{'100vh - 50px'});
 }
 
 .ballo-font {
+  font-family: 'Baloo', cursive;
+}
+
+.header-title {
+  color: $portfolio-dark-yellow;
   font-family: 'Baloo', cursive;
 }
 

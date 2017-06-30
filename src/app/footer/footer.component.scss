@@ -2,7 +2,6 @@
 
 footer {
   margin-bottom: -4rem;
-  opacity: .9;
   width: 100%;
 }
 
@@ -16,7 +15,7 @@ footer {
 }
 
 .navbar {
-  background-color: fade-out($portfolio-dark-green, .1);
+  background-color: $portfolio-dark-green;
   border-radius: 0;
   margin-bottom: 0;
 }
@@ -24,5 +23,3 @@ footer {
 .on-homepage {
   background-color: transparent;
 }
-
-

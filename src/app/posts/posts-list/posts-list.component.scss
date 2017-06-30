@@ -3,10 +3,10 @@
 .row {
 
   .post-item-card {
-    background-color: $portfolio-gray;
-    border: 1px solid $portfolio-light-gray;
+    background-color: $portfolio-very-light-gray;
+    border: 1px solid $portfolio-gray;
     margin-bottom: 10px;
-    margin-top: 10px;
+    margin-top: 5px;
 
     .img-thumbnail {
       height: 65vh;
@@ -17,7 +17,7 @@
   }
 
   &:first-child .post-item-card {
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
 }

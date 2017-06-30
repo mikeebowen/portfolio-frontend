@@ -1,3 +1,3 @@
 export * from './wobble.animation';
-export * from './fadeInOut.animation';
-export * from './slideInOut.animation';
+export * from './fade-in-out.animation';
+export * from './slide-in-out.animation';
