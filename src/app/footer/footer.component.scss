@@ -1,0 +1,28 @@
+@import '../../variables';
+
+footer {
+  margin-bottom: -4rem;
+  opacity: .9;
+  width: 100%;
+}
+
+.nav-link {
+  color: $portfolio-aqua;
+
+  &:hover {
+    background-color: transparent;
+    font-weight: 300;
+  }
+}
+
+.navbar {
+  background-color: fade-out($portfolio-dark-green, .1);
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.on-homepage {
+  background-color: transparent;
+}
+
+

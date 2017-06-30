@@ -1,0 +1,50 @@
+@import '../../variables';
+
+.jumbotron {
+  background-color: fade-out($portfolio-dark-green, .5);
+  margin-top: 8rem;
+  padding-top: 3rem;
+
+  img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+  }
+
+  p {
+    color: $portfolio-dark-yellow;
+    margin-left: 5rem;
+  }
+
+  h1 {
+    color: $portfolio-dark-yellow;
+    font-family: 'Baloo', cursive;
+  }
+}
+
+hr {
+  border: .5rem solid $portfolio-dark-yellow;
+  width: 50%;
+}
+
+
+.lead {
+  margin-top: 3rem;
+}
+
+.opacity-zero {
+  opacity: 0;
+}
+
+.fly-in-header {
+  h1 {
+    display: inline-block;
+  }
+}
+
+.display-3 {
+  span {
+    display: inline-block;
+    margin: auto -5px;
+  }
+}

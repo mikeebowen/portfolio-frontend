@@ -1,0 +1,38 @@
+@import '../../variables';
+
+.navbar {
+  background-color: fade-out($portfolio-dark-green, .1);
+  border-radius: 0;
+  clear: both;
+
+  a {
+    font-family: $header-font;
+    font-size: 4rem;
+  }
+}
+
+.form-wrapper {
+  opacity: .8;
+
+  input {
+    background-color: fade-out($portfolio-white, .4);
+  }
+}
+
+.nav-link {
+  font-family: $header-font;
+  font-size: 2.5rem;
+}
+
+.navbar-brand {
+  img {
+    height: 200%;
+    margin-top: -1.8rem;
+  }
+}
+
+@media (max-width: 1006px) {
+  .form-wrapper {
+    display: none;
+  }
+}

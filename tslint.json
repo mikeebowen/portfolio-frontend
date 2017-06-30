@@ -1,8 +1,12 @@
 {
+  "extends": [
+    "tslint-eslint-rules"
+  ],
   "rulesDirectory": [
     "node_modules/codelyzer"
   ],
   "rules": {
+    "array-bracket-spacing": [ "error", "always" ],
     "callable-types": true,
     "class-name": true,
     "comment-format": [
@@ -60,6 +64,7 @@
     "no-unused-expression": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
+    "object-curly-spacing": [ "error", "always" ],
     "object-literal-sort-keys": false,
     "one-line": [
       true,
