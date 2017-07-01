@@ -18,6 +18,6 @@ export class Post {
     this.content = options.content;
     this.author = options.author;
     // TODO add timestamp for unique title in database
-    this.uniqueTitle = this.title.toLowerCase().replace(' ', '-')/* + Date.now().toString()*/;
+    this.uniqueTitle = this.title.toLowerCase().trim().replace(/\s/g, '-')/* + Date.now().toString()*/;
   }
 }
