@@ -1,8 +1,10 @@
 @import '../../variables';
 
-//body {
-//  background-image: url('../../assets/images/green-cricket-background.jpg');
-//}
+.main-content {
+  background: $portfolio-very-light-gray url('../../assets/images/green-cricket-background.jpg');
+  background-size: cover;
+  min-height: calc(#{'100vh'});
+}
 
 .jumbotron {
   background-color: fade-out($portfolio-dark-green, .5);

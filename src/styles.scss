@@ -5,8 +5,10 @@ html {
 }
 
 body {
-  background: $portfolio-very-light-gray url('assets/images/green-cricket-background.jpg');
-  background-size: cover;
+  background-color: $portfolio-black;
+  background-image: $background-image;
+  background-position: $background-position;
+  background-size: $background-size;
   font-family: $default-font;
   padding-top: 59px;
 }

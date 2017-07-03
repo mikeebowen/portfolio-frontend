@@ -14,12 +14,15 @@ footer {
   }
 }
 
-.navbar {
-  background-color: $portfolio-dark-green;
-  border-radius: 0;
-  margin-bottom: 0;
-}
+nav {
 
-.on-homepage {
-  background-color: transparent;
+  &.navbar {
+    background-color: $portfolio-dark-green;
+    border-radius: 0;
+    margin-bottom: 0;
+
+    &.on-homepage {
+      background-color: transparent;
+    }
+  }
 }
