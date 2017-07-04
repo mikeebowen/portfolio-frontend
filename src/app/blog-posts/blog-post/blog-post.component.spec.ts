@@ -4,12 +4,12 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import { By } from '@angular/platform-browser';
 
-import { PostComponent } from './post.component';
+import { BlogPostComponent } from './blog-post.component';
 import { Post } from '../../shared/classes/post';
 
-describe('PostComponent', () => {
-  let component: PostComponent;
-  let fixture: ComponentFixture<PostComponent>;
+describe('BlogPostComponent', () => {
+  let component: BlogPostComponent;
+  let fixture: ComponentFixture<BlogPostComponent>;
   const params: Params = {
     id: 'article-1-title'
   };
@@ -45,14 +45,14 @@ describe('PostComponent', () => {
   ];
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PostComponent ],
+      declarations: [ BlogPostComponent ],
       providers: [ { provide: ActivatedRoute, useValue: mockRouter } ]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PostComponent);
+    fixture = TestBed.createComponent(BlogPostComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

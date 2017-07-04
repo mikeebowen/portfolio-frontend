@@ -5,10 +5,10 @@ import { Post } from '../../shared/classes/post';
 
 @Component({
   selector: 'app-posts-list',
-  templateUrl: './posts-list.component.html',
-  styleUrls: [ './posts-list.component.scss' ]
+  templateUrl: './blog-posts-list.component.html',
+  styleUrls: [ './blog-posts-list.component.scss' ]
 })
-export class PostsListComponent implements OnInit {
+export class BlogPostsListComponent implements OnInit {
   posts: Post[];
 
   constructor() { }

@@ -4,12 +4,12 @@ import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute } from '@angular/router';
 import { By } from '@angular/platform-browser';
 
-import { PostsListComponent } from './posts-list.component';
+import { BlogPostsListComponent } from './blog-posts-list.component';
 import { Post } from '../../shared/classes/post';
 
-describe('PostsListComponent', () => {
-  let component: PostsListComponent;
-  let fixture: ComponentFixture<PostsListComponent>;
+describe('BlogPostsListComponent', () => {
+  let component: BlogPostsListComponent;
+  let fixture: ComponentFixture<BlogPostsListComponent>;
   const mockRouter = {
     snapshot: {},
     params: Observable.of({
@@ -22,7 +22,7 @@ describe('PostsListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PostsListComponent ],
+      declarations: [ BlogPostsListComponent ],
       imports: [ RouterTestingModule ],
       providers: [ { provide: ActivatedRoute, useValue: mockRouter } ]
     })
@@ -30,7 +30,7 @@ describe('PostsListComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PostsListComponent);
+    fixture = TestBed.createComponent(BlogPostsListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

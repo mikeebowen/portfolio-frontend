@@ -5,11 +5,11 @@ import { Post } from '../../shared/classes/post';
 import posts from '../../../assets/posts';
 
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: [ './post.component.scss' ]
+  selector: 'app-blog-post',
+  templateUrl: './blog-post.component.html',
+  styleUrls: [ './blog-post.component.scss' ]
 })
-export class PostComponent implements OnInit {
+export class BlogPostComponent implements OnInit {
   postId: string;
   post: Post;
 
@@ -20,7 +20,6 @@ export class PostComponent implements OnInit {
   ngOnInit() {
     this.posts = posts;
     this.route.params.subscribe((params: Params) => {
-      console.log('this.posts[0] : ', this.posts[0].uniqueTitle);
       this.postId = params.id;
       for (const post of this.posts) {
         if (params.id === post.uniqueTitle) {
