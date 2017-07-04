@@ -7,7 +7,7 @@ import { By } from '@angular/platform-browser';
 import { BlogPostsListComponent } from './blog-posts-list.component';
 import { Post } from '../../shared/classes/post';
 
-describe('BlogPostsListComponent', () => {
+fdescribe('BlogPostsListComponent', () => {
   let component: BlogPostsListComponent;
   let fixture: ComponentFixture<BlogPostsListComponent>;
   const mockRouter = {

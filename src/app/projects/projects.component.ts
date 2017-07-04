@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { slideInOut } from '../shared/animations/index';
 
-import projects from '../../assets/projects';
+import posts from '../../assets/posts';
 import { Post } from '../shared/classes/post';
 
 @Component({
@@ -13,11 +13,14 @@ import { Post } from '../shared/classes/post';
   // host: { '[@slideInOut]': '' }
 })
 export class ProjectsComponent implements OnInit {
-  projects: Post[];
+  projects: Post[] = [];
   constructor() { }
 
   ngOnInit() {
-    this.projects = projects;
+    for (const post of posts) {
+      if (post.postType === 'projectPost') {
+        this.projects.push(post);
+      }
+    }
   }
-
 }

@@ -9,12 +9,15 @@ import { Post } from '../../shared/classes/post';
   styleUrls: [ './blog-posts-list.component.scss' ]
 })
 export class BlogPostsListComponent implements OnInit {
-  posts: Post[];
+  posts: Post[] = [];
 
   constructor() { }
 
   ngOnInit() {
-    this.posts = posts;
+    for (const post of posts) {
+      if (post.postType === 'blogPost') {
+        this.posts.push(post);
+      }
+    }
   }
-
 }
