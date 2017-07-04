@@ -20,6 +20,7 @@ export class PostComponent implements OnInit {
   ngOnInit() {
     this.posts = posts;
     this.route.params.subscribe((params: Params) => {
+      console.log('this.posts[0] : ', this.posts[0].uniqueTitle);
       this.postId = params.id;
       for (const post of this.posts) {
         if (params.id === post.uniqueTitle) {
