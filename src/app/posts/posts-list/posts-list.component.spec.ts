@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { By } from '@angular/platform-browser';
 
 import { PostsListComponent } from './posts-list.component';
-import { Post } from '../shared/post';
+import { Post } from '../../shared/classes/post';
 
 describe('PostsListComponent', () => {
   let component: PostsListComponent;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import posts from '../../../assets/posts';
-import { Post } from '../shared/post';
+import { Post } from '../../shared/classes/post';
 
 @Component({
   selector: 'app-posts-list',

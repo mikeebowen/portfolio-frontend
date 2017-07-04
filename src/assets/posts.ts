@@ -1,4 +1,4 @@
-import { Post } from '../app/posts/shared/post';
+import { Post } from '../app/shared/classes/post';
 
 export default [
   new Post({

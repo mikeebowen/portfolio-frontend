@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { Post } from '../shared/post';
+import { Post } from '../../shared/classes/post';
 import posts from '../../../assets/posts';
 
 @Component({
