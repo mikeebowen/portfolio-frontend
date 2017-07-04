@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { PostsListComponent } from './posts/posts-list/posts-list.component';
-import { PostComponent } from './posts/post/post.component';
+import { BlogPostsListComponent } from './blog-posts/blog-posts-list/blog-posts-list.component';
+import { BlogPostComponent } from './blog-posts/blog-post/blog-post.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
@@ -21,11 +21,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: PostsListComponent
+        component: BlogPostsListComponent
       },
       {
         path: ':id',
-        component: PostComponent
+        component: BlogPostComponent
       }
     ]
   },

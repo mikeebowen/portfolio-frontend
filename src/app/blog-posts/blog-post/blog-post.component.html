@@ -5,11 +5,9 @@
         <h1>{{post?.title}}</h1>
         <h2>{{post?.subtitle}}</h2>
         <h3>{{post?.author}}</h3>
-        <article>
-          <ng-container>
-            <article [innerHTML]="post?.content"></article>
-          </ng-container>
-        </article>
+        <ng-container>
+          <article [innerHTML]="post?.content"></article>
+        </ng-container>
       </div>
     </div>
   </div>

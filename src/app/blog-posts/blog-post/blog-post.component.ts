@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { Post } from '../shared/post';
+import { Post } from '../../shared/classes/post';
 import posts from '../../../assets/posts';
 
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: [ './post.component.scss' ]
+  selector: 'app-blog-post',
+  templateUrl: './blog-post.component.html',
+  styleUrls: [ './blog-post.component.scss' ]
 })
-export class PostComponent implements OnInit {
+export class BlogPostComponent implements OnInit {
   postId: string;
   post: Post;
 

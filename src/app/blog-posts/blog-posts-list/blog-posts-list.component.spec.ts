@@ -4,12 +4,12 @@ import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute } from '@angular/router';
 import { By } from '@angular/platform-browser';
 
-import { PostsListComponent } from './posts-list.component';
-import { Post } from '../shared/post';
+import { BlogPostsListComponent } from './blog-posts-list.component';
+import { Post } from '../../shared/classes/post';
 
-describe('PostsListComponent', () => {
-  let component: PostsListComponent;
-  let fixture: ComponentFixture<PostsListComponent>;
+fdescribe('BlogPostsListComponent', () => {
+  let component: BlogPostsListComponent;
+  let fixture: ComponentFixture<BlogPostsListComponent>;
   const mockRouter = {
     snapshot: {},
     params: Observable.of({
@@ -22,7 +22,7 @@ describe('PostsListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PostsListComponent ],
+      declarations: [ BlogPostsListComponent ],
       imports: [ RouterTestingModule ],
       providers: [ { provide: ActivatedRoute, useValue: mockRouter } ]
     })
@@ -30,7 +30,7 @@ describe('PostsListComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PostsListComponent);
+    fixture = TestBed.createComponent(BlogPostsListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -71,7 +71,6 @@ describe('PostsListComponent', () => {
     fixture.detectChanges();
     const postDebugElements = fixture.debugElement.queryAll(By.css('.post-item-card'));
     expect(postDebugElements.length).toEqual(3);
-    console.log('postDebugElements[0].nativeElement.children : ', postDebugElements[0].nativeElement.children);
     expect(postDebugElements[0].nativeElement.children[0].children[1].innerHTML).toEqual('TestArticle 1 Title');
     expect(postDebugElements[1].nativeElement.children[0].children[1].innerHTML).toEqual('TestArticle 2 Title');
     expect(postDebugElements[2].nativeElement.children[0].children[1].innerHTML).toEqual('TestArticle 3 Title');
