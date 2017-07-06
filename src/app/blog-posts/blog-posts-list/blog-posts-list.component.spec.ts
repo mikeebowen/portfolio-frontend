@@ -7,7 +7,7 @@ import { By } from '@angular/platform-browser';
 import { BlogPostsListComponent } from './blog-posts-list.component';
 import { Post } from '../../shared/classes/post';
 
-fdescribe('BlogPostsListComponent', () => {
+describe('BlogPostsListComponent', () => {
   let component: BlogPostsListComponent;
   let fixture: ComponentFixture<BlogPostsListComponent>;
   const mockRouter = {
@@ -33,10 +33,6 @@ fdescribe('BlogPostsListComponent', () => {
     fixture = TestBed.createComponent(BlogPostsListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should be created', () => {
-    expect(component).toBeTruthy();
   });
 
   it('should show jumbotrons for each post', fakeAsync(() => {

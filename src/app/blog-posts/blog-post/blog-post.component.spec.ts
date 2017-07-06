@@ -72,7 +72,6 @@ describe('BlogPostComponent', () => {
     tick();
     fixture.detectChanges();
     const postDebugElement = fixture.debugElement.queryAll(By.css('article'));
-    // console.log('testPosts. : ', testPosts);
     expect(postDebugElement.length).toEqual(1);
     expect(postDebugElement[ 0 ].nativeElement.innerHTML).toEqual(testPosts[ 0 ].content);
   }));
