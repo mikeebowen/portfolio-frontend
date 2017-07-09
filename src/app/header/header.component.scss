@@ -4,11 +4,12 @@
   background-color: $portfolio-dark-green;
   border-radius: 0;
   clear: both;
+  height: 59px;
   margin-bottom: 0;
 
   a {
-    font-family: $header-font;
-    font-size: 4rem;
+    @include type-setting(4);
+    font-family: $site-header-font;
   }
 }
 
@@ -17,18 +18,6 @@
 
   input {
     background-color: fade-out($portfolio-white, .4);
-  }
-}
-
-.nav-link {
-  font-family: $header-font;
-  font-size: 2.5rem;
-}
-
-.navbar-brand {
-  img {
-    height: 200%;
-    margin-top: -1.8rem;
   }
 }
 
