@@ -9,8 +9,6 @@ import { Post } from '../shared/classes/post';
   templateUrl: './projects.component.html',
   styleUrls: [ './projects.component.scss' ],
   animations: [ slideInOut ],
-  // tslint:disable-next-line:use-host-property-decorator
-  // host: { '[@slideInOut]': '' }
 })
 export class ProjectsComponent implements OnInit {
   projects: Post[] = [];
