@@ -1,7 +1,7 @@
 <div class="container-fluid main-content" role="presentation">
   <div class="row" role="presentation">
-    <div class="col-xs-8 col-xs-offset-4">
-      <div class="jumbotron jumbotron-fluid fly-in-header">
+    <div class="col-8 offset-4">
+      <div class="jumbotron fly-in-header">
         <h1 class="display-3">
           <span class="header-title" [@fadeInOut]="fadeInOutState1">G</span>
           <span class="header-title" [@fadeInOut]="fadeInOutState2">r</span>
@@ -23,7 +23,7 @@
           <span class="header-title" [@fadeInOut]="fadeInOutState18">s</span>
         </h1>
         <p [@fadeInOut]="fadeInOutState19" class="lead">Spicy jalapeno bacon ipsum dolor amet turducken ball tip cupim short ribs chicken shankle. Sirloin pork turkey, tail landjaeger alcatra turducken cow meatball cupim venison pig kielbasa. Swine meatball tenderloin shankle pastrami.</p>
-        <img  [@fadeInOut]="fadeInOutState20" [@wobble]="wobbleState" (@wobble.done)="resetWobble()" (mouseover)="triggerAnimation()" src="../../assets/images/grasshopper-dark-yellow.png" alt="cricket" class="mx-auto d-block">
+        <img  [@fadeInOut]="fadeInOutState20" [@wobble]="wobbleState" (@wobble.done)="resetWobble()" (mouseover)="triggerAnimation()" [src]="'assets/images/grasshopper-dark-yellow.png'" alt="cricket" class="mx-auto d-block">
       </div>
     </div>
   </div>
