@@ -1,8 +1,57 @@
 // fonts
 $default-font: 'Ubuntu', sans-serif;
-$header-font: 'Baloo', cursive;
+$header-font: 'Oswald' sans-serif;
+$site-header-font: 'Baloo', cursive;
 // font sizes
-$base-font-size: 8px;
+$base-font-size: 14px;
+$type-scale: (
+  -1: 2rem, // body text
+  0: 4.5rem, // Page Title
+  1: 4rem, // Header 1
+  2: 3.5rem, // Header 2
+  3: 3rem, // Header 3
+  4: 2.5rem, // Header 4
+  5: 2rem // Header 5
+);
+// font weights
+$font-weights: (
+  -1: 300, // body text
+  0: 400, // Page Title
+  1: 400, // Header 1
+  2: 400, // Header 2
+  3: 400, // Header 3
+  4: 300, // Header 4
+  5: 300 // Header 5
+);
+// font families
+$font-types: (
+  -1: $default-font, // body text
+  0: $header-font, // Page Title
+  1: $header-font, // Header 1
+  2: $header-font, // Header 2
+  3: $header-font, // Header 3
+  4: $header-font, // Header 4
+  5: $header-font // Header 5
+);
+// line heights
+$base-line-height: $base-font-size;
+$line-heights: (
+    -1: $base-line-height * 3,
+    0: $base-line-height * 5,
+    1: $base-line-height * 5,
+    2: $base-line-height * 4,
+    3: $base-line-height * 4,
+    4: $base-line-height * 3,
+    5: $base-line-height * 3
+  );
+
+// font settings mix-in
+@mixin type-setting ($level: 0) {
+  font-size: map-get($type-scale, $level);
+  line-height: map-get($line-heights, $level);
+  font-family: map-get($font-types, $level);
+  font-weight: map-get($font-weights, $level);
+}
 // theme colors
 $portfolio-dark-green: #012615;
 $portfolio-dark-teal: #012621;
