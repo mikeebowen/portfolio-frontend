@@ -3,30 +3,37 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute } from '@angular/router';
 import { By } from '@angular/platform-browser';
+import { PaginationModule, PaginationConfig } from 'ngx-bootstrap/pagination';
 
 import { BlogPostsListComponent } from './blog-posts-list.component';
 import { Post } from '../../shared/classes/post';
+import { BlogPostsService } from '../../shared/services/blog-posts.service';
 
 describe('BlogPostsListComponent', () => {
   let component: BlogPostsListComponent;
   let fixture: ComponentFixture<BlogPostsListComponent>;
   const mockRouter = {
     snapshot: {},
-    params: Observable.of({
-      params: {
-        id: 'tacocat'
+    queryParams: {
+      subscribe: () => {
+        return Observable.of({
+          params: {
+            page: 69
+          }
+        });
       }
-    })
-
+    }
   };
+
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ BlogPostsListComponent ],
-      imports: [ RouterTestingModule ],
-      providers: [ { provide: ActivatedRoute, useValue: mockRouter } ]
+      imports: [ RouterTestingModule, PaginationModule ],
+      providers: [
+        { provide: ActivatedRoute, useValue: mockRouter }, BlogPostsService, PaginationConfig ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -67,8 +74,18 @@ describe('BlogPostsListComponent', () => {
     fixture.detectChanges();
     const postDebugElements = fixture.debugElement.queryAll(By.css('.post-item-card'));
     expect(postDebugElements.length).toEqual(3);
-    expect(postDebugElements[0].nativeElement.children[0].children[1].innerHTML).toEqual('TestArticle 1 Title');
-    expect(postDebugElements[1].nativeElement.children[0].children[1].innerHTML).toEqual('TestArticle 2 Title');
-    expect(postDebugElements[2].nativeElement.children[0].children[1].innerHTML).toEqual('TestArticle 3 Title');
+    expect(postDebugElements[ 0 ].nativeElement.children[ 0 ].children[ 1 ].innerHTML).toEqual('TestArticle 1 Title');
+    expect(postDebugElements[ 1 ].nativeElement.children[ 0 ].children[ 1 ].innerHTML).toEqual('TestArticle 2 Title');
+    expect(postDebugElements[ 2 ].nativeElement.children[ 0 ].children[ 1 ].innerHTML).toEqual('TestArticle 3 Title');
   }));
+
+  it('should have a method switchPage that sets the current page and calls route.navigate and scrolls to the top of the window', () => {
+    const navigateSpy = spyOn((<any>component).router, 'navigate');
+    const windowSpy = spyOn(window, 'scrollTo');
+
+    component.switchPage({ page: 7 });
+    expect(component.currentPage).toEqual(7);
+    expect(navigateSpy).toHaveBeenCalled();
+    expect(windowSpy).toHaveBeenCalledWith(0, 0);
+  });
 });
