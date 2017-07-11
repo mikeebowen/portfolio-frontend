@@ -1,19 +1,23 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import '@angular/animations';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
-import { AppRoutingModule } from './app-routing.module';
+// components
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { BlogPostsListComponent } from './blog-posts/blog-posts-list/blog-posts-list.component';
 import { BlogPostComponent } from './blog-posts/blog-post/blog-post.component';
+import { BlogPostsListComponent } from './blog-posts/blog-posts-list/blog-posts-list.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { AppRoutingModule } from './app-routing.module';
+// services
+import { BlogPostsService } from './shared/services/blog-posts.service';
 
 @NgModule({
   declarations: [
@@ -31,9 +35,10 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    PaginationModule.forRoot()
   ],
-  providers: [],
+  providers: [ BlogPostsService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

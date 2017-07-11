@@ -20,4 +20,34 @@
     margin-top: 10px;
   }
 
+  &.limit-width {
+    width: 100%;
+  }
+}
+
+/deep/ .page-link {
+  background-color: transparent;
+  border: 1px solid $portfolio-aqua;
+  color: $portfolio-dark-yellow;
+
+  &:hover {
+    background-color: $portfolio-dark-teal;
+    border: 1px solid $portfolio-aqua;
+    color: $portfolio-light-gray;
+  }
+}
+
+/deep/ .page-item {
+
+  &.disabled .page-link {
+    background-color: transparent;
+    border: 1px solid $portfolio-aqua;
+    color: $portfolio-dark-yellow;
+  }
+
+  &.active .page-link {
+    background-color: $portfolio-medium-green;
+    border: 1px solid $portfolio-aqua;
+    color: $portfolio-very-light-gray;
+  }
 }

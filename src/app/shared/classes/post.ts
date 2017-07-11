@@ -1,4 +1,4 @@
-type PostType = 'blogPost' | 'projectPost';
+export type PostType = 'blogPost' | 'projectPost';
 
 interface IPostOptions {
   title?: string;
