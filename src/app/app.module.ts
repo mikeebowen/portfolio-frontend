@@ -19,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
 // services
 import { BlogPostsService } from './shared/services/blog-posts.service';
 import { AboutMeComponent } from './about-me/about-me.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AboutMeComponent } from './about-me/about-me.component';
     BlogPostsListComponent,
     BlogPostComponent,
     LoginComponent,
-    AboutMeComponent
+    AboutMeComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
