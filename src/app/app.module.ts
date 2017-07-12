@@ -10,14 +10,18 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { AppComponent } from './app.component';
 import { BlogPostComponent } from './blog-posts/blog-post/blog-post.component';
 import { BlogPostsListComponent } from './blog-posts/blog-posts-list/blog-posts-list.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { HeaderComponent } from './shared/components/header/header.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { AppRoutingModule } from './app-routing.module';
 // services
 import { BlogPostsService } from './shared/services/blog-posts.service';
+import { AboutMeComponent } from './about-me/about-me.component';
+import { ContactComponent } from './contact/contact.component';
+import { CreatePostComponent } from './create-post/create-post.component';
+import { WysiwygEditorComponent } from './create-post/wysiwyg-editor/wysiwyg-editor.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { BlogPostsService } from './shared/services/blog-posts.service';
     ProjectsComponent,
     BlogPostsListComponent,
     BlogPostComponent,
-    LoginComponent
+    LoginComponent,
+    AboutMeComponent,
+    ContactComponent,
+    CreatePostComponent,
+    WysiwygEditorComponent
   ],
   imports: [
     BrowserModule,
