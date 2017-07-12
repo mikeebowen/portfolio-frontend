@@ -20,6 +20,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { BlogPostsService } from './shared/services/blog-posts.service';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { ContactComponent } from './contact/contact.component';
+import { CreatePostComponent } from './create-post/create-post.component';
+import { WysiwygEditorComponent } from './create-post/wysiwyg-editor/wysiwyg-editor.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ContactComponent } from './contact/contact.component';
     BlogPostComponent,
     LoginComponent,
     AboutMeComponent,
-    ContactComponent
+    ContactComponent,
+    CreatePostComponent,
+    WysiwygEditorComponent
   ],
   imports: [
     BrowserModule,
