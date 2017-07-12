@@ -18,6 +18,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { AppRoutingModule } from './app-routing.module';
 // services
 import { BlogPostsService } from './shared/services/blog-posts.service';
+import { AboutMeComponent } from './about-me/about-me.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BlogPostsService } from './shared/services/blog-posts.service';
     ProjectsComponent,
     BlogPostsListComponent,
     BlogPostComponent,
-    LoginComponent
+    LoginComponent,
+    AboutMeComponent
   ],
   imports: [
     BrowserModule,
