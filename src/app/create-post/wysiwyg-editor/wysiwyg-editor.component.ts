@@ -36,6 +36,7 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
     tinymce.init({
       selector: '#' + this.elementId,
       plugins: [ 'link', 'table' ],
+      min_height: 400,
       skin_url: 'assets/skins/lightgray',
       setup: editor => {
         this.editor = editor;
