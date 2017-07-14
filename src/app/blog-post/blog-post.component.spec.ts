@@ -5,7 +5,7 @@ import 'rxjs/add/observable/of';
 import { By } from '@angular/platform-browser';
 
 import { BlogPostComponent } from './blog-post.component';
-import { Post } from '../../shared/classes/post';
+import { Post } from '../shared/classes/post';
 
 describe('BlogPostComponent', () => {
   let component: BlogPostComponent;

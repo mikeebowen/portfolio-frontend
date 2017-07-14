@@ -8,8 +8,8 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 // components
 import { AppComponent } from './app.component';
-import { BlogPostComponent } from './blog-posts/blog-post/blog-post.component';
-import { BlogPostsListComponent } from './blog-posts/blog-posts-list/blog-posts-list.component';
+import { BlogPostComponent } from './blog-post/blog-post.component';
+import { BlogPostsListComponent } from './blog-posts-list/blog-posts-list.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { HomeComponent } from './home/home.component';

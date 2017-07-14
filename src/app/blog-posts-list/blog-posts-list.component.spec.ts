@@ -6,8 +6,8 @@ import { By } from '@angular/platform-browser';
 import { PaginationModule, PaginationConfig } from 'ngx-bootstrap/pagination';
 
 import { BlogPostsListComponent } from './blog-posts-list.component';
-import { Post } from '../../shared/classes/post';
-import { BlogPostsService } from '../../shared/services/blog-posts.service';
+import { Post } from '../shared/classes/post';
+import { BlogPostsService } from '../shared/services/blog-posts.service';
 
 describe('BlogPostsListComponent', () => {
   let component: BlogPostsListComponent;

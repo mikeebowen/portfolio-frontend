@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
-import { BlogPostsService } from '../../shared/services/blog-posts.service';
-import { Post } from '../../shared/classes/post';
+import { BlogPostsService } from '../shared/services/blog-posts.service';
+import { Post } from '../shared/classes/post';
 
 @Component({
   selector: 'app-posts-list',
