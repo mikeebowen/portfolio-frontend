@@ -20,7 +20,9 @@
     <div class="mx-auto">
       <pagination [totalItems]="totalNumberOfPosts" class="pagination-sm"
                   [maxSize]="maxPaginationSize"
-                  [boundaryLinks]="true" [rotate]="false"
+                  [boundaryLinks]="true"
+                  [rotate]="false"
+                  [(ngModel)]="currentPage"
                   (pageChanged)="switchPage($event)"></pagination>
     </div>
   </div>

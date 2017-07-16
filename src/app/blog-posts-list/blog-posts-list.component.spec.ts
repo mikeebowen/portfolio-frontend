@@ -8,6 +8,8 @@ import { PaginationModule, PaginationConfig } from 'ngx-bootstrap/pagination';
 import { BlogPostsListComponent } from './blog-posts-list.component';
 import { Post } from '../shared/classes/post';
 import { BlogPostsService } from '../shared/services/blog-posts.service';
+import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 describe('BlogPostsListComponent', () => {
   let component: BlogPostsListComponent;
@@ -28,10 +30,10 @@ describe('BlogPostsListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BlogPostsListComponent ],
-      imports: [ RouterTestingModule, PaginationModule ],
+      declarations: [BlogPostsListComponent],
+      imports: [RouterTestingModule, PaginationModule, HttpModule, FormsModule],
       providers: [
-        { provide: ActivatedRoute, useValue: mockRouter }, BlogPostsService, PaginationConfig ]
+        { provide: ActivatedRoute, useValue: mockRouter }, BlogPostsService, PaginationConfig]
     })
       .compileComponents();
   }));
@@ -43,6 +45,7 @@ describe('BlogPostsListComponent', () => {
   });
 
   it('should show jumbotrons for each post', fakeAsync(() => {
+
     component.posts = [
       new Post({
         title: 'TestArticle 1 Title',
@@ -69,14 +72,14 @@ describe('BlogPostsListComponent', () => {
         content: '<p>test content3</p>'
       })
     ];
-
+    fixture.detectChanges();
     tick();
     fixture.detectChanges();
     const postDebugElements = fixture.debugElement.queryAll(By.css('.post-item-card'));
     expect(postDebugElements.length).toEqual(3);
-    expect(postDebugElements[ 0 ].nativeElement.children[ 0 ].children[ 1 ].innerHTML).toEqual('TestArticle 1 Title');
-    expect(postDebugElements[ 1 ].nativeElement.children[ 0 ].children[ 1 ].innerHTML).toEqual('TestArticle 2 Title');
-    expect(postDebugElements[ 2 ].nativeElement.children[ 0 ].children[ 1 ].innerHTML).toEqual('TestArticle 3 Title');
+    expect(postDebugElements[0].nativeElement.children[0].children[1].innerHTML).toEqual('TestArticle 1 Title');
+    expect(postDebugElements[1].nativeElement.children[0].children[1].innerHTML).toEqual('TestArticle 2 Title');
+    expect(postDebugElements[2].nativeElement.children[0].children[1].innerHTML).toEqual('TestArticle 3 Title');
   }));
 
   it('should have a method switchPage that sets the current page and calls route.navigate and scrolls to the top of the window', () => {

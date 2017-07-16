@@ -17,7 +17,6 @@ export class BlogPostsListComponent implements OnInit, OnDestroy {
   totalNumberOfPosts: number;
   currentPage: number;
   startIndex: number;
-  queryParamsSubscription: Subscription;
   blogPostsSubscription: Subscription;
   blogPageCountSubscription: Subscription;
 
@@ -28,7 +27,7 @@ export class BlogPostsListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.queryParamsSubscription = this.activatedRoute.queryParams.subscribe(
+    this.activatedRoute.queryParams.subscribe(
       (params: Params) => {
         const page = parseInt(params.page, 10);
 
@@ -55,9 +54,9 @@ export class BlogPostsListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.queryParamsSubscription.unsubscribe();
-    this.blogPostsSubscription.unsubscribe();
-    this.blogPageCountSubscription.unsubscribe();
+    // if (this.queryParamsSubscription) this.queryParamsSubscription.unsubscribe();
+    if (this.blogPostsSubscription) this.blogPostsSubscription.unsubscribe();
+    if (this.blogPageCountSubscription) this.blogPageCountSubscription.unsubscribe();
   }
 
   switchPage(e: any): void {
