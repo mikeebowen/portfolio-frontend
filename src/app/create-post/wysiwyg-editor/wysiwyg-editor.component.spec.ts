@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WysiwygEditorComponent } from './wysiwyg-editor.component';
+import { BlogPostsService } from '../../shared/services/blog-posts.service';
+import { HttpModule } from '@angular/http';
 
 describe('WysiwygEditorComponent', () => {
   let component: WysiwygEditorComponent;
@@ -8,7 +10,9 @@ describe('WysiwygEditorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WysiwygEditorComponent ]
+      imports: [ HttpModule ],
+      declarations: [ WysiwygEditorComponent ],
+      providers: [ BlogPostsService ]
     })
     .compileComponents();
   }));

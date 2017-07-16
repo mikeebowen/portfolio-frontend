@@ -19,6 +19,7 @@ import 'tinymce/plugins/imagetools';
 import 'tinymce/plugins/save';
 import 'tinymce/plugins/lists';
 import 'tinymce/plugins/codesample';
+import { BlogPostsService } from '../../shared/services/blog-posts.service';
 
 declare const tinymce: any;
 
@@ -32,13 +33,14 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
   @Output() onEditorContentChange = new EventEmitter();
   editor: any;
 
-  constructor() {
+  constructor(private blogPostsService: BlogPostsService) {
   }
 
   ngOnInit() {
   }
 
   ngAfterViewInit() {
+
     tinymce.init({
       selector: '#' + this.elementId,
       plugins: ['link', 'table', 'spellchecker', 'image', 'imagetools', 'save', 'lists', 'imagetools', 'codesample'],
@@ -69,7 +71,8 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
       },
       image_title: true,
       file_browser_callback_types: 'image',
-      file_picker_callback: function (callback, value, meta) {
+      file_picker_callback: (callback, value, meta) => {
+        const component = this;
         const input = document.createElement('input');
         input.setAttribute('type', 'file');
         input.setAttribute('accept', 'image/*');
@@ -86,6 +89,7 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
             const base64 = reader.result.split(',')[1];
             const blobInfo = blobCache.create(id, file, base64);
             blobCache.add(blobInfo);
+            component.uploadFile(base64, file.name);
 
             callback(blobInfo.blobUri(), { title: file.name });
           };
@@ -101,6 +105,13 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
 
   ngOnDestroy() {
     tinymce.remove(this.editor);
+  }
+
+  uploadFile(toBase64String: any, fileName: string) {
+    this.blogPostsService.uploadFile(toBase64String, fileName).subscribe(
+      res => console.log('res : ', res),
+      err => console.error('error uploading file : ', err)
+    );
   }
 
 }
