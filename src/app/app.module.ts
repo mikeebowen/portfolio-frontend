@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import '@angular/animations';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 // components
 import { AppComponent } from './app.component';
@@ -44,7 +45,8 @@ import { WysiwygEditorComponent } from './create-post/wysiwyg-editor/wysiwyg-edi
     HttpModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [ BlogPostsService ],
   bootstrap: [ AppComponent ]

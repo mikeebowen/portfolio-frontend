@@ -47,6 +47,18 @@ h5 {
   font-family: 'Baloo', cursive;
 }
 
+.fade.in {
+  opacity: 1;
+}
+
+.modal.in .modal-dialog {
+  transform: translate(0, 0);
+}
+
+.modal-backdrop.in {
+  opacity: .5;
+}
+
 @media (max-width: $md-max-width) {
   body {
     margin-top: 209px;

@@ -9,7 +9,13 @@
 
   a {
     @include type-setting(4);
+    color: $portfolio-dark-yellow;
     font-family: $site-header-font;
+
+    &.active,
+    &:hover {
+      color: $portfolio-greenish-yellow;
+    }
   }
 }
 

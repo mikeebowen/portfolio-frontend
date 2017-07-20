@@ -1,2 +1,13 @@
 <h1>My WYSIWYG</h1>
-<textarea id="{{elementId}}"></textarea>`
+<div bsModal #saveOrCancelModal="bs-modal" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="mySmallModalLabel" [config]="{backdrop: 'static'}">
+  <div class="modal-dialog btn-toolbar justify-content-between" role="toolbar"
+       aria-label="Toolbar with button groups">
+    <div class="btn-group mx-auto" role="group">
+      <button type="button" class="btn btn-primary">Publish Now</button>
+      <button type="button" class="btn btn-info">Save as Draft</button>
+      <button type="button" class="btn btn-warning" (click)="saveOrCancelModal.hide()">Cancel</button>
+    </div>
+  </div>
+</div>
+<textarea id="{{elementId}}"></textarea>

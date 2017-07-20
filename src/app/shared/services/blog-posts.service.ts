@@ -54,7 +54,7 @@ export class BlogPostsService {
 
     return this.http.post(postFileURL, body)
       .map(response => {
-        return response.json();
+        return response.json().data.attributes.path;
       });
   }
 
