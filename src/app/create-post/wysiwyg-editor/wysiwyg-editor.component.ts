@@ -2,10 +2,9 @@ import {
   Component,
   OnInit,
   AfterViewInit,
-  EventEmitter,
   OnDestroy,
   Input,
-  Output, ViewChild
+  ViewChild
 } from '@angular/core';
 
 import 'tinymce';
@@ -34,9 +33,10 @@ let fileLink: string;
 })
 export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() elementId: string;
-  @Output() onEditorContentChange = new EventEmitter();
   editor: any;
+  htmlToSave: string;
   @ViewChild('saveOrCancelModal') saveOrCancelModal: ModalDirective;
+
   file_upload_callback: Function = (callback, value, meta) => {
     const component = this;
     const input = document.createElement('input');
@@ -67,8 +67,7 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
   tinymce_setup: Function = editor => {
     this.editor = editor;
     editor.on('keyup change', () => {
-      const content = editor.getContent();
-      this.onEditorContentChange.emit(content);
+      this.htmlToSave = editor.getContent();
     });
   }
 
