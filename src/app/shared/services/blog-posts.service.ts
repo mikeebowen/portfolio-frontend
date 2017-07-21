@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 import posts from '../../../assets/posts';
 import { Post, PostType } from '../classes/post';
 
-const postFileURL = '/api/files';
+const postFileURL = '/api/file';
 
 @Injectable()
 export class BlogPostsService {
