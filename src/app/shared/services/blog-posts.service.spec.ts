@@ -30,12 +30,22 @@ describe('BlogPostsService', () => {
 
           connection.mockRespond(new Response(
             new ResponseOptions({
-              body: { message: 'file saved' }
+              body: {
+                'data': {
+                  'type': 'fileInfo',
+                  'attributes': {
+                    'name': 'testName.png',
+                    'message': 'file successfully uploaded',
+                    'path': '/api/file/testName.png'
+                  }
+                },
+                'status': 201
+              }
             })));
         });
 
       blogPostService.uploadFile('fakeBase64String', 'filename').subscribe(
-        (res: Response) => expect(res).toEqual({ message: 'file saved' }),
+        (res: Response) => expect(res).toEqual('/api/file/testName.png'),
         (err: Error) => expect(err).toBeFalsy()
       );
     })));
