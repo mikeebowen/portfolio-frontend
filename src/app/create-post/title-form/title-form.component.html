@@ -1,22 +1,22 @@
-<form>
+<form #blogPostInfoForm="ngForm">
   <div class="form-group">
     <label for="blog-post-author">Author</label>
-    <input class="form-control" type="text" id="blog-post-author" name="blogPostAuthor">
+    <input class="form-control" type="text" id="blog-post-author" name="blogPostAuthor" [(ngModel)]="blogPostToSave.author">
   </div>
   <div class="form-group">
     <label for="blog-post-title">Title</label>
-      <input class="form-control" type="text" id="blog-post-title" name="blogPostTitle">
+    <input class="form-control" type="text" id="blog-post-title" name="blogPostTitle" [(ngModel)]="blogPostToSave.title">
   </div>
   <div class="form-group">
     <label for="blog-post-subtitle">Subtitle</label>
-      <input class="form-control" type="text" id="blog-post-subtitle" name="blogPostSubtitle">
+    <input class="form-control" type="text" id="blog-post-subtitle" name="blogPostSubtitle" [(ngModel)]="blogPostToSave.subtitle">
   </div>
   <div class="form-group">
     <label for="blog-post-description">Short description</label>
-      <textarea class="form-control" name="blogPostArea" id="blog-post-description" cols="30" rows="10"></textarea>
+    <textarea class="form-control" name="blogPostArea" id="blog-post-description" cols="30" rows="10" [(ngModel)]="blogPostToSave.description"></textarea>
   </div>
   <div class="form-group">
     <label for="blog-post-display-image">Display Image</label>
-    <input type="file" class="form-control-file" id="blog-post-display-image" name="blogPostDisplayImage">
+    <input type="file" class="form-control-file" id="blog-post-display-image" name="blogPostDisplayImage" [(ngModel)]="blogPostToSave.image">
   </div>
 </form>

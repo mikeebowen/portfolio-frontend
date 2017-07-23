@@ -17,6 +17,9 @@ export class BlogPostsService {
   private pageCountSource: BehaviorSubject<number> = new BehaviorSubject(null);
   pageCount$ = this.pageCountSource.asObservable();
 
+  private blogPostToSaveSource: BehaviorSubject<Post> = new BehaviorSubject(new Post({}));
+  blogPostToSave$ = this.blogPostToSaveSource.asObservable();
+
   constructor(private http: Http) {
   }
 
@@ -56,6 +59,15 @@ export class BlogPostsService {
       .map(response => {
         return response.json().data.attributes.path;
       });
+  }
+
+  /**
+   * @method updateBlogPostToSave
+   * update BehaviorSubject for the blog post to save
+   * @param {Post} blogPost
+   */
+  updateBlogPostToSave(blogPost: Post) {
+    this.blogPostToSaveSource.next(blogPost);
   }
 
 }

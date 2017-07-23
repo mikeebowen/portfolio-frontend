@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from '../shared/classes/post';
+import { BlogPostsService } from '../shared/services/blog-posts.service';
 
 @Component({
   selector: 'app-create-post',
@@ -6,17 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: [ './create-post.component.scss' ]
 })
 export class CreatePostComponent implements OnInit {
-
+  blogPostToSave: Post;
   currentTab = 'Post Information';
 
-  constructor() {
+  constructor(private blogPostService: BlogPostsService) {
   }
 
   ngOnInit() {
-  }
-
-  keyupHandler(e: any) {
-    console.log('Tinymce Event : ', e);
+     this.blogPostService.blogPostToSave$.subscribe(
+       (blogPost: Post) => this.blogPostToSave = blogPost,
+       (err: Error) => console.error('Error retrieving blog post to save: ', err)
+     );
   }
 
   changeTab(tabName: string) {

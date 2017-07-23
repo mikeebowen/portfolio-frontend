@@ -18,10 +18,7 @@
     </div>
     <div class="row" role="presentation">
       <div class="col-12">
-        <app-wysiwyg-editor
-          *ngIf="currentTab === 'Post Content'"
-          [elementId]="'my-editor'"
-          (onEditorContentChange)="keyupHandler($event)"></app-wysiwyg-editor>
+        <app-wysiwyg-editor *ngIf="currentTab === 'Post Content'"></app-wysiwyg-editor>
       </div>
     </div>
     <div class="row" role="presentation">

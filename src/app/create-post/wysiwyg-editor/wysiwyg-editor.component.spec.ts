@@ -5,6 +5,7 @@ import { BlogPostsService } from '../../shared/services/blog-posts.service';
 import { HttpModule } from '@angular/http';
 import { ModalModule } from 'ngx-bootstrap';
 import { Observable } from 'rxjs/Observable';
+import { FormsModule } from '@angular/forms';
 
 describe('WysiwygEditorComponent', () => {
   let component: WysiwygEditorComponent;
@@ -12,7 +13,7 @@ describe('WysiwygEditorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [HttpModule, ModalModule.forRoot()],
+      imports: [HttpModule, ModalModule.forRoot(), FormsModule],
       declarations: [WysiwygEditorComponent],
       providers: [BlogPostsService]
     })

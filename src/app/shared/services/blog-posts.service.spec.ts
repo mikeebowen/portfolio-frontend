@@ -9,6 +9,7 @@ import {
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
 import { BlogPostsService } from './blog-posts.service';
+import { Post } from '../classes/post';
 
 describe('BlogPostsService', () => {
   beforeEach(() => {
@@ -49,4 +50,12 @@ describe('BlogPostsService', () => {
         (err: Error) => expect(err).toBeFalsy()
       );
     })));
+
+  it('should have a method updateBlogPostToSave that updates the blogPostToSave BehaviorSubject',
+    inject([BlogPostsService], (blogPostService) => {
+    blogPostService.blogPostToSaveSource.next = jasmine.createSpy('blogPostToSaveSource.next');
+    const testBlogPost = new Post({ title: 'Hello World' });
+    blogPostService.updateBlogPostToSave(testBlogPost);
+    expect(blogPostService.blogPostToSaveSource.next).toHaveBeenCalledWith(testBlogPost);
+  }));
 });
