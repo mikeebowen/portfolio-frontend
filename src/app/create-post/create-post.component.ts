@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatePostComponent implements OnInit {
 
+  currentTab = 'Post Information';
+
   constructor() {
   }
 
@@ -15,6 +17,10 @@ export class CreatePostComponent implements OnInit {
 
   keyupHandler(e: any) {
     console.log('Tinymce Event : ', e);
+  }
+
+  changeTab(tabName: string) {
+    this.currentTab = tabName;
   }
 
 }

@@ -23,6 +23,7 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { ContactComponent } from './contact/contact.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { WysiwygEditorComponent } from './create-post/wysiwyg-editor/wysiwyg-editor.component';
+import { TitleFormComponent } from './create-post/title-form/title-form.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { WysiwygEditorComponent } from './create-post/wysiwyg-editor/wysiwyg-edi
     AboutMeComponent,
     ContactComponent,
     CreatePostComponent,
-    WysiwygEditorComponent
+    WysiwygEditorComponent,
+    TitleFormComponent
   ],
   imports: [
     BrowserModule,
