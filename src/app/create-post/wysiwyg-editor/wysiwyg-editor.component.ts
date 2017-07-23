@@ -4,7 +4,7 @@ import {
   AfterViewInit,
   OnDestroy,
   Input,
-  ViewChild
+  ViewChild, EventEmitter, Output
 } from '@angular/core';
 
 import 'tinymce';
@@ -21,6 +21,7 @@ import 'tinymce/plugins/code';
 
 import { BlogPostsService } from '../../shared/services/blog-posts.service';
 import { ModalDirective } from 'ngx-bootstrap';
+import { Post } from '../../shared/classes/post';
 
 declare const tinymce: any;
 let fileLink: string;
@@ -34,7 +35,7 @@ let fileLink: string;
 export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() elementId: string;
   editor: any;
-  htmlToSave: string;
+  blogPostToSave: Post;
   saveOrCancelModalConfig: any = { backdrop: 'static' };
   @ViewChild('saveOrCancelModal') saveOrCancelModal: ModalDirective;
 
@@ -67,8 +68,10 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
 
   tinymce_setup: Function = editor => {
     this.editor = editor;
+
     editor.on('keyup change', () => {
-      this.htmlToSave = editor.getContent();
+      this.blogPostToSave.content = editor.getContent();
+      this.blogPostsService.updateBlogPostToSave(this.blogPostToSave);
     });
   }
 
@@ -76,12 +79,16 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
   }
 
   ngOnInit() {
+    this.blogPostsService.blogPostToSave$.subscribe(
+      (blogPost: Post) => this.blogPostToSave = blogPost,
+      (err: Error) => console.error('Error retrieving blog post to save: ', err)
+    );
   }
 
   ngAfterViewInit() {
 
     tinymce.init({
-      selector: '#' + this.elementId,
+      selector: '#wysiwyg-editor',
       plugins: ['link', 'table', 'spellchecker', 'image', 'imagetools', 'save', 'lists', 'imagetools', 'codesample', 'code '],
       // tslint:disable-next-line:max-line-length
       toolbar: 'insertfile undo redo | code | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image codesample | save cancel',
@@ -115,6 +122,8 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
         alert('TODO add cancel method');
       }
     });
+
+    if (this.blogPostToSave.content) this.editor.setContent(this.blogPostToSave.content, { format: 'raw' });
   }
 
   ngOnDestroy() {

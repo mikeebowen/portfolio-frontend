@@ -35,6 +35,8 @@ export class Post {
     this.postType = options.postType;
     this.published = options.published;
     // TODO add timestamp for unique title in database
-    this.uniqueTitle = this.title.toLowerCase().trim().replace(/\s/g, '-')/* + Date.now().toString()*/;
+    if (this.title) {
+      this.uniqueTitle = this.title.toLowerCase().trim().replace(/\s/g, '-')/* + Date.now().toString()*/;
+    }
   }
 }
