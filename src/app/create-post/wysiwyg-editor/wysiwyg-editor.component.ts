@@ -35,9 +35,10 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
   @Input() elementId: string;
   editor: any;
   htmlToSave: string;
+  saveOrCancelModalConfig: any = { backdrop: 'static' };
   @ViewChild('saveOrCancelModal') saveOrCancelModal: ModalDirective;
 
-  file_upload_callback: Function = (callback, value, meta) => {
+  file_upload_callback: Function = (callback: Function, value?, meta?): void => {
     const component = this;
     const input = document.createElement('input');
     input.setAttribute('type', 'file');
@@ -110,7 +111,9 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
         this.saveOrCancelModal.show();
       },
       // TODO add cancel method
-      save_oncancelcallback: () => { alert('TODO add cancel method'); }
+      save_oncancelcallback: () => {
+        alert('TODO add cancel method');
+      }
     });
   }
 
@@ -118,8 +121,8 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
     tinymce.remove(this.editor);
   }
 
-  uploadFile(toBase64String: any, fileName: string, callback: Function) {
-    this.blogPostsService.uploadFile(toBase64String, fileName).subscribe(
+  uploadFile(base64String: any, fileName: string, callback: Function) {
+    this.blogPostsService.uploadFile(base64String, fileName).subscribe(
       (res: string) => {
         fileLink = res;
         callback();

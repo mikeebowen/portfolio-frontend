@@ -1,9 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, inject, TestBed } from '@angular/core/testing';
 
 import { WysiwygEditorComponent } from './wysiwyg-editor.component';
 import { BlogPostsService } from '../../shared/services/blog-posts.service';
 import { HttpModule } from '@angular/http';
 import { ModalModule } from 'ngx-bootstrap';
+import { Observable } from 'rxjs/Observable';
 
 describe('WysiwygEditorComponent', () => {
   let component: WysiwygEditorComponent;
@@ -11,11 +12,11 @@ describe('WysiwygEditorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpModule, ModalModule.forRoot() ],
-      declarations: [ WysiwygEditorComponent ],
-      providers: [ BlogPostsService ]
+      imports: [HttpModule, ModalModule.forRoot()],
+      declarations: [WysiwygEditorComponent],
+      providers: [BlogPostsService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -24,7 +25,13 @@ describe('WysiwygEditorComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should be created', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should have a method uploadFile that calls the BlogPostService to upload a file', inject([BlogPostsService], (blogPostService) => {
+    const callback = jasmine.createSpy('callback');
+
+    spyOn(blogPostService, 'uploadFile').and.returnValue(Observable.of('burrito'));
+    component.uploadFile('data:image/png;base64,aGVsbG8gd29ybGQ=', 'testFileName.jpg', callback);
+
+    expect(blogPostService.uploadFile).toHaveBeenCalledWith('data:image/png;base64,aGVsbG8gd29ybGQ=', 'testFileName.jpg');
+    expect(callback).toHaveBeenCalled();
+  }));
 });
