@@ -4,7 +4,7 @@ import {
   AfterViewInit,
   OnDestroy,
   Input,
-  ViewChild, EventEmitter, Output
+  ViewChild,
 } from '@angular/core';
 
 import 'tinymce';
@@ -19,9 +19,9 @@ import 'tinymce/plugins/lists';
 import 'tinymce/plugins/codesample';
 import 'tinymce/plugins/code';
 
-import { BlogPostsService } from '../../shared/services/blog-posts.service';
+import { BlogPostsService } from '../../../shared/services/blog-posts.service';
 import { ModalDirective } from 'ngx-bootstrap';
-import { Post } from '../../shared/classes/post';
+import { Post } from '../../../shared/classes/post';
 
 declare const tinymce: any;
 let fileLink: string;

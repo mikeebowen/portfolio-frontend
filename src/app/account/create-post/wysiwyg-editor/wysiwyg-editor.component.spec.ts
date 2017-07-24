@@ -1,7 +1,7 @@
 import { async, ComponentFixture, inject, TestBed } from '@angular/core/testing';
 
 import { WysiwygEditorComponent } from './wysiwyg-editor.component';
-import { BlogPostsService } from '../../shared/services/blog-posts.service';
+import { BlogPostsService } from '../../../shared/services/blog-posts.service';
 import { HttpModule } from '@angular/http';
 import { ModalModule } from 'ngx-bootstrap';
 import { Observable } from 'rxjs/Observable';

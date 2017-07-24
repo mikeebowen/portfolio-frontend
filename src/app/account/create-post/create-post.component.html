@@ -1,0 +1,28 @@
+<div class="post-container" role="presentation">
+  <div class="row">
+    <div class="btn-toolbar col-12" role="toolbar">
+      <div class="btn-group mt-2">
+        <button class="btn"
+                type="button"
+                [ngClass]="{'btn-primary': currentTab === 'Post Information', 'btn-secondary': currentTab !== 'Post Information'}"
+                (click)="changeTab('Post Information')">Post Information
+        </button>
+        <button class="btn"
+                type="button"
+                [ngClass]="{'btn-primary': currentTab === 'Post Content', 'btn-secondary': currentTab !== 'Post Content'}"
+                (click)="changeTab('Post Content')">Post Content
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row" role="presentation">
+    <div class="col-12">
+      <app-wysiwyg-editor *ngIf="currentTab === 'Post Content'"></app-wysiwyg-editor>
+    </div>
+  </div>
+  <div class="row" role="presentation">
+    <div class="col-12">
+      <app-post-info-form *ngIf="currentTab === 'Post Information'"></app-post-info-form>
+    </div>
+  </div>
+</div>

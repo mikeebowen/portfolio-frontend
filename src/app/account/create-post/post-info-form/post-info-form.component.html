@@ -1,0 +1,45 @@
+<form #blogPostInfoForm="ngForm">
+  <div class="form-group">
+    <label for="blog-post-author">Author</label>
+    <input class="form-control" type="text" id="blog-post-author" name="blogPostAuthor"
+           [(ngModel)]="blogPostToSave.author">
+  </div>
+  <div class="form-group">
+    <label for="blog-post-title">Title</label>
+    <input class="form-control" type="text" id="blog-post-title" name="blogPostTitle"
+           [(ngModel)]="blogPostToSave.title">
+  </div>
+  <div class="form-group">
+    <label for="blog-post-subtitle">Subtitle</label>
+    <input class="form-control" type="text" id="blog-post-subtitle" name="blogPostSubtitle"
+           [(ngModel)]="blogPostToSave.subtitle">
+  </div>
+  <div class="form-group">
+    <label for="blog-post-description">Short description</label>
+    <textarea class="form-control" name="blogPostArea" id="blog-post-description" cols="30" rows="10"
+              [(ngModel)]="blogPostToSave.description"></textarea>
+  </div>
+  <fieldset class="form-group row">
+    <div class="col-10">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input [(ngModel)]="blogPostToSave.postType" class="form-check-input" type="radio" name="blogPostType"
+                 id="blog-post-type" value="blogPost" checked>
+          Blog Post
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input [(ngModel)]="blogPostToSave.postType" class="form-check-input" type="radio" name="blogPostType"
+                 id="project=post-type" value="projectPost">
+          Project Post
+        </label>
+      </div>
+    </div>
+  </fieldset>
+  <div class="form-group">
+    <label for="blog-post-display-image">Display Image</label>
+    <input type="file" class="form-control-file" id="blog-post-display-image" name="blogPostDisplayImage"
+           [(ngModel)]="blogPostToSave.image">
+  </div>
+</form>

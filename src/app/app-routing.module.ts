@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AboutMeComponent } from './about-me/about-me.component';
+import { AccountComponent } from './account/account.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
 import { BlogPostsListComponent } from './blog-posts-list/blog-posts-list.component';
 import { ContactComponent } from './contact/contact.component';
-import { CreatePostComponent } from './create-post/create-post.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProjectsComponent } from './projects/projects.component';
@@ -45,8 +45,8 @@ const routes: Routes = [
     component: ContactComponent
   },
   {
-    path: 'create-post',
-    component: CreatePostComponent
+    path: 'account',
+    component: AccountComponent
   }
 ];
 
