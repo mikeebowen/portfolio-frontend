@@ -24,6 +24,7 @@ import { ContactComponent } from './contact/contact.component';
 import { CreatePostComponent } from './account/create-post/create-post.component';
 import { WysiwygEditorComponent } from './account/wysiwyg-editor/wysiwyg-editor.component';
 import { TitleFormComponent } from './account/post-info-form/post-info-form.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { TitleFormComponent } from './account/post-info-form/post-info-form.comp
     ContactComponent,
     CreatePostComponent,
     WysiwygEditorComponent,
-    TitleFormComponent
+    TitleFormComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
