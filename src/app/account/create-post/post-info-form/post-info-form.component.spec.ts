@@ -1,17 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TitleFormComponent } from './post-info-form.component';
+import { PostInfoFormComponent } from './post-info-form.component';
 import { FormsModule } from '@angular/forms';
-import { BlogPostsService } from '../../shared/services/blog-posts.service';
+import { BlogPostsService } from '../../../shared/services/blog-posts.service';
 import { HttpModule } from '@angular/http';
 
-describe('TitleFormComponent', () => {
-  let component: TitleFormComponent;
-  let fixture: ComponentFixture<TitleFormComponent>;
+describe('PostInfoFormComponent', () => {
+  let component: PostInfoFormComponent;
+  let fixture: ComponentFixture<PostInfoFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TitleFormComponent ],
+      declarations: [ PostInfoFormComponent ],
       providers: [BlogPostsService],
       imports: [FormsModule, HttpModule]
     })
@@ -19,7 +19,7 @@ describe('TitleFormComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TitleFormComponent);
+    fixture = TestBed.createComponent(PostInfoFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

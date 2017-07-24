@@ -22,9 +22,10 @@ import { BlogPostsService } from './shared/services/blog-posts.service';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { ContactComponent } from './contact/contact.component';
 import { CreatePostComponent } from './account/create-post/create-post.component';
-import { WysiwygEditorComponent } from './account/wysiwyg-editor/wysiwyg-editor.component';
-import { TitleFormComponent } from './account/post-info-form/post-info-form.component';
+import { WysiwygEditorComponent } from './account/create-post/wysiwyg-editor/wysiwyg-editor.component';
+import { PostInfoFormComponent } from './account/create-post/post-info-form/post-info-form.component';
 import { AccountComponent } from './account/account.component';
+import { AccountHeaderComponent } from './account/account-header/account-header.component';
 
 @NgModule({
   declarations: [
@@ -40,8 +41,9 @@ import { AccountComponent } from './account/account.component';
     ContactComponent,
     CreatePostComponent,
     WysiwygEditorComponent,
-    TitleFormComponent,
-    AccountComponent
+    PostInfoFormComponent,
+    AccountComponent,
+    AccountHeaderComponent
   ],
   imports: [
     BrowserModule,
