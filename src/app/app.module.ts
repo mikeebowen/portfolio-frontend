@@ -21,9 +21,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { BlogPostsService } from './shared/services/blog-posts.service';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { ContactComponent } from './contact/contact.component';
-import { CreatePostComponent } from './create-post/create-post.component';
-import { WysiwygEditorComponent } from './create-post/wysiwyg-editor/wysiwyg-editor.component';
-import { TitleFormComponent } from './create-post/title-form/title-form.component';
+import { CreatePostComponent } from './account/create-post/create-post.component';
+import { WysiwygEditorComponent } from './account/wysiwyg-editor/wysiwyg-editor.component';
+import { TitleFormComponent } from './account/post-info-form/post-info-form.component';
 
 @NgModule({
   declarations: [

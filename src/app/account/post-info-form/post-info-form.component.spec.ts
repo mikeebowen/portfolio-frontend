@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TitleFormComponent } from './title-form.component';
+import { TitleFormComponent } from './post-info-form.component';
 import { FormsModule } from '@angular/forms';
 import { BlogPostsService } from '../../shared/services/blog-posts.service';
 import { HttpModule } from '@angular/http';

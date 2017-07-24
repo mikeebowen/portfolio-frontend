@@ -4,7 +4,7 @@ import {
   AfterViewInit,
   OnDestroy,
   Input,
-  ViewChild, EventEmitter, Output
+  ViewChild,
 } from '@angular/core';
 
 import 'tinymce';

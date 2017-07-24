@@ -3,9 +3,9 @@ import { Post } from '../../shared/classes/post';
 import { BlogPostsService } from '../../shared/services/blog-posts.service';
 
 @Component({
-  selector: 'app-title-form',
-  templateUrl: './title-form.component.html',
-  styleUrls: ['./title-form.component.scss']
+  selector: 'app-post-info-form',
+  templateUrl: './post-info-form.component.html',
+  styleUrls: ['./post-info-form.component.scss']
 })
 export class TitleFormComponent implements OnInit {
   @ViewChild('blogPostInfoForm') blogPostInfoForm;
