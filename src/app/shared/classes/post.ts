@@ -11,7 +11,7 @@ interface IPostOptions {
   author?: string;
   description?: string;
   content?: string;
-  image?: Image;
+  image?: string;
   imageDescription?: string;
   published?: boolean;
   postType?: PostType;
@@ -23,7 +23,7 @@ export class Post {
   author: string;
   description: string;
   content: string;
-  image: Image;
+  image: string;
   imageDescription: string;
   uniqueTitle: string;
   published: boolean;
