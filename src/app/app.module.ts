@@ -26,6 +26,9 @@ import { WysiwygEditorComponent } from './account/create-post/wysiwyg-editor/wys
 import { PostInfoFormComponent } from './account/create-post/post-info-form/post-info-form.component';
 import { AccountComponent } from './account/account.component';
 import { AccountHeaderComponent } from './account/account-header/account-header.component';
+import { EditSiteInfoComponent } from './account/edit-site-info/edit-site-info.component';
+import { EditAboutContentComponent } from './account/edit-about-content/edit-about-content.component';
+import { EditAccountInfoComponent } from './account/edit-account-info/edit-account-info.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { AccountHeaderComponent } from './account/account-header/account-header.
     WysiwygEditorComponent,
     PostInfoFormComponent,
     AccountComponent,
-    AccountHeaderComponent
+    AccountHeaderComponent,
+    EditSiteInfoComponent,
+    EditAboutContentComponent,
+    EditAccountInfoComponent
   ],
   imports: [
     BrowserModule,

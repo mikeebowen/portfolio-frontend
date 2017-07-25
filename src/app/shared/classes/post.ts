@@ -1,12 +1,17 @@
 export type PostType = 'blogPost' | 'projectPost';
 
+export class Image {
+  location: string;
+  description?: string;
+}
+
 interface IPostOptions {
   title?: string;
   subtitle?: string;
   author?: string;
   description?: string;
   content?: string;
-  image?: string;
+  image?: Image;
   imageDescription?: string;
   published?: boolean;
   postType?: PostType;
@@ -18,7 +23,7 @@ export class Post {
   author: string;
   description: string;
   content: string;
-  image: string;
+  image: Image;
   imageDescription: string;
   uniqueTitle: string;
   published: boolean;
