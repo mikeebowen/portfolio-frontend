@@ -1,4 +1,8 @@
 <div class="main-content container" role="presentation">
-  <app-account-header></app-account-header>
-  <app-create-post></app-create-post>
+  <app-account-header [currentTabIndex]="currentTabIndex" [tabArray]="tabArray"
+                      (currentTabEventEmitter)="updateCurrentTab($event)"></app-account-header>
+  <app-edit-site-info *ngIf="currentTabIndex === 0"></app-edit-site-info>
+  <app-edit-about-content *ngIf="currentTabIndex === 1"></app-edit-about-content>
+  <app-create-post *ngIf="currentTabIndex === 2"></app-create-post>
+  <app-edit-account-info *ngIf="currentTabIndex === 3"></app-edit-account-info>
 </div>

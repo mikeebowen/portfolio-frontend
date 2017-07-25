@@ -1,5 +1,10 @@
 export type PostType = 'blogPost' | 'projectPost';
 
+export class Image {
+  location: string;
+  description?: string;
+}
+
 interface IPostOptions {
   title?: string;
   subtitle?: string;
