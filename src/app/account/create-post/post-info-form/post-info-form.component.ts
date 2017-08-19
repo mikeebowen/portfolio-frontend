@@ -1,5 +1,5 @@
 import { Component, OnChanges, OnInit, ViewChild } from '@angular/core';
-import { Post } from '../../../shared/classes/post';
+import { Post, Image } from '../../../shared/classes/post';
 import { BlogPostsService } from '../../../shared/services/blog-posts.service';
 
 @Component({
@@ -47,6 +47,9 @@ export class PostInfoFormComponent implements OnInit, OnChanges {
       component.base64ImageToDisplay = reader.result;
       component.base64ImageToSave = reader.result.split(',')[1];
       console.log(reader.result);
+      const newImg = new Image({ src: component.base64ImageToDisplay, name: file.name });
+      component.blogPostToSave.image = newImg;
+      component.blogPostService.updateBlogPostToSave(component.blogPostToSave);
     };
   }
 

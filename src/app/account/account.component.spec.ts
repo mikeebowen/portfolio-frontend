@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AccountComponent } from './account.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FileAssetsService } from '../shared/services/file-assets.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('AccountComponent', () => {
   let component: AccountComponent;
@@ -9,10 +11,12 @@ describe('AccountComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AccountComponent ],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      // imports: [HttpModule],
+      declarations: [AccountComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers: [FileAssetsService, HttpClient, HttpHandler]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -22,6 +22,8 @@ import 'tinymce/plugins/code';
 import { BlogPostsService } from '../../../shared/services/blog-posts.service';
 import { ModalDirective } from 'ngx-bootstrap';
 import { Post } from '../../../shared/classes/post';
+import { FileAssetsService } from '../../../shared/services/file-assets.service';
+import { TinymceImage } from '../../../shared/classes/tinymce-image';
 
 declare const tinymce: any;
 let fileLink: string;
@@ -36,6 +38,7 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
   @Input() elementId: string;
   editor: any;
   blogPostToSave: Post;
+  image_list: TinymceImage[];
   saveOrCancelModalConfig: any = { backdrop: 'static' };
   @ViewChild('saveOrCancelModal') saveOrCancelModal: ModalDirective;
 
@@ -75,7 +78,11 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
     });
   }
 
-  constructor(private blogPostsService: BlogPostsService) {
+  constructor(private blogPostsService: BlogPostsService, private fileAssetsService: FileAssetsService) {
+
+    this.fileAssetsService.tinymceImages$.subscribe((images: TinymceImage[]) => {
+      this.image_list = images;
+    });
   }
 
   ngOnInit() {
@@ -110,6 +117,7 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
       ],
       setup: this.tinymce_setup,
       image_title: true,
+      image_list: this.image_list,
       file_browser_callback_types: 'image',
       file_picker_callback: this.file_upload_callback,
       // TODO add save method
@@ -131,7 +139,7 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
   }
 
   uploadFile(base64String: any, fileName: string, callback: Function) {
-    this.blogPostsService.uploadFile(base64String, fileName).subscribe(
+    this.fileAssetsService.uploadFile(base64String, fileName).subscribe(
       (res: string) => {
         fileLink = res;
         callback();

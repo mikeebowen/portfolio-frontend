@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import '@angular/animations';
@@ -17,8 +18,6 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { AppRoutingModule } from './app-routing.module';
-// services
-import { BlogPostsService } from './shared/services/blog-posts.service';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { ContactComponent } from './contact/contact.component';
 import { CreatePostComponent } from './account/create-post/create-post.component';
@@ -29,6 +28,10 @@ import { AccountHeaderComponent } from './account/account-header/account-header.
 import { EditSiteInfoComponent } from './account/edit-site-info/edit-site-info.component';
 import { EditAboutContentComponent } from './account/edit-about-content/edit-about-content.component';
 import { EditAccountInfoComponent } from './account/edit-account-info/edit-account-info.component';
+
+// services
+import { BlogPostsService } from './shared/services/blog-posts.service';
+import { FileAssetsService } from './shared/services/file-assets.service';
 
 @NgModule({
   declarations: [
@@ -54,13 +57,15 @@ import { EditAccountInfoComponent } from './account/edit-account-info/edit-accou
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     HttpModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     PaginationModule.forRoot(),
     ModalModule.forRoot()
   ],
-  providers: [ BlogPostsService ],
-  bootstrap: [ AppComponent ]
+  providers: [BlogPostsService, FileAssetsService],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
