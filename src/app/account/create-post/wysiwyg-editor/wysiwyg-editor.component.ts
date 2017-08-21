@@ -79,10 +79,6 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
   }
 
   constructor(private blogPostsService: BlogPostsService, private fileAssetsService: FileAssetsService) {
-
-    this.fileAssetsService.tinymceImages$.subscribe((images: TinymceImage[]) => {
-      this.image_list = images;
-    });
   }
 
   ngOnInit() {
@@ -90,6 +86,10 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
       (blogPost: Post) => this.blogPostToSave = blogPost,
       (err: Error) => console.error('Error retrieving blog post to save: ', err)
     );
+
+    this.fileAssetsService.tinymceImages$.subscribe((images: TinymceImage[]) => {
+      this.image_list = images;
+    });
   }
 
   ngAfterViewInit() {
