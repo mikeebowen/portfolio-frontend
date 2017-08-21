@@ -51,24 +51,21 @@ describe('BlogPostsListComponent', () => {
         title: 'TestArticle 1 Title',
         description: 'test article 1 despcription',
         author: 'test author1',
-        image: 'test_image1.jpg',
-        imageDescription: 'testImageDescription1',
+        image: { src: 'assets/images/woman-with-fidget-spinner.jpeg', name: 'woman with fidget spinner' },
         content: '<p>test content1</p>'
       }),
       new Post({
         title: 'TestArticle 2 Title',
         description: 'test article 2 despcription',
         author: 'test author2',
-        image: 'test_image2.jpg',
-        imageDescription: 'testImageDescription2',
+        image: { src: 'assets/images/woman-with-fidget-spinner.jpeg', name: 'woman with fidget spinner' },
         content: '<p>test content2</p>'
       }),
       new Post({
         title: 'TestArticle 3 Title',
         description: 'test article 3 despcription',
         author: 'test author3',
-        image: 'test_image3.jpg',
-        imageDescription: 'testImageDescription3',
+        image: { src: 'assets/images/woman-with-fidget-spinner.jpeg', name: 'woman with fidget spinner' },
         content: '<p>test content3</p>'
       })
     ];

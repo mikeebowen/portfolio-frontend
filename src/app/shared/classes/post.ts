@@ -1,9 +1,19 @@
-export type PostType = 'blogPost' | 'projectPost';
+interface IImageOptions {
+  src: string;
+  name: string;
+}
 
 export class Image {
-  location: string;
-  description?: string;
+  src: string;
+  name?: string;
+
+  constructor(options?: IImageOptions) {
+    this.src = options.src;
+    this.name = options.name;
+  }
 }
+
+export type PostType = 'blogPost' | 'projectPost';
 
 interface IPostOptions {
   title?: string;
@@ -11,8 +21,7 @@ interface IPostOptions {
   author?: string;
   description?: string;
   content?: string;
-  image?: string;
-  imageDescription?: string;
+  image?: Image;
   published?: boolean;
   postType?: PostType;
 }
@@ -23,8 +32,7 @@ export class Post {
   author: string;
   description: string;
   content: string;
-  image: string;
-  imageDescription: string;
+  image: Image;
   uniqueTitle: string;
   published: boolean;
   postType: PostType;
@@ -36,7 +44,6 @@ export class Post {
     this.description = options.description;
     this.content = options.content;
     this.image = options.image;
-    this.imageDescription = options.imageDescription;
     this.postType = options.postType;
     this.published = options.published;
     // TODO add timestamp for unique title in database

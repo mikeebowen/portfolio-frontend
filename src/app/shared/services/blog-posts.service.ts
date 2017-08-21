@@ -1,12 +1,9 @@
-import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/map';
 
 import posts from '../../../assets/posts';
 import { Post, PostType } from '../classes/post';
-
-const postFileURL = '/api/file';
 
 @Injectable()
 export class BlogPostsService {
@@ -20,7 +17,7 @@ export class BlogPostsService {
   private blogPostToSaveSource: BehaviorSubject<Post> = new BehaviorSubject(new Post({}));
   blogPostToSave$ = this.blogPostToSaveSource.asObservable();
 
-  constructor(private http: Http) {
+  constructor() {
   }
 
   /**
@@ -42,23 +39,6 @@ export class BlogPostsService {
       .slice(startIndex, stopBeforeIndex);
 
     this.postsSource.next(postsForPage);
-  }
-
-  /**
-   * @method uploadFile
-   * post base64String and file name
-   * @param {any} base64String
-   * @param {any} fileName
-   * @returns {Observable<Response>}
-   */
-
-  uploadFile(base64String: any, fileName: any) {
-    const body = { base64String, fileName };
-
-    return this.http.post(postFileURL, body)
-      .map(response => {
-        return response.json().data.attributes.path;
-      });
   }
 
   /**

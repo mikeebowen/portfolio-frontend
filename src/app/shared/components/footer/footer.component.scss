@@ -17,6 +17,7 @@ footer {
 nav {
 
   &.navbar {
+    align-items: flex-end;
     background-color: $portfolio-dark-green;
     border-radius: 0;
     margin-bottom: 0;
