@@ -5,6 +5,7 @@ import { CreatePostComponent } from './create-post.component';
 import { FormsModule } from '@angular/forms';
 import { BlogPostsService } from '../../shared/services/blog-posts.service';
 import { HttpModule } from '@angular/http';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('CreatePostComponent', () => {
   let component: CreatePostComponent;
@@ -13,7 +14,7 @@ describe('CreatePostComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CreatePostComponent ],
-      providers: [BlogPostsService],
+      providers: [BlogPostsService, HttpClient, HttpHandler],
       imports: [FormsModule, HttpModule],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })

@@ -41,6 +41,7 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
   image_list: TinymceImage[];
   saveOrCancelModalConfig: any = { backdrop: 'static' };
   @ViewChild('saveOrCancelModal') saveOrCancelModal: ModalDirective;
+  wysiwygID = 'wysiwyg-editor';
 
   file_upload_callback: Function = (callback: Function, value?, meta?): void => {
     const component = this;
@@ -95,7 +96,7 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
   ngAfterViewInit() {
 
     tinymce.init({
-      selector: '#wysiwyg-editor',
+      selector: `#${this.wysiwygID}`,
       plugins: ['link', 'table', 'spellchecker', 'image', 'imagetools', 'save', 'lists', 'imagetools', 'codesample', 'code '],
       // tslint:disable-next-line:max-line-length
       toolbar: 'insertfile undo redo | code | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image codesample | save cancel',
@@ -146,6 +147,29 @@ export class WysiwygEditorComponent implements OnInit, OnDestroy, AfterViewInit 
       },
       err => console.error('error uploading file : ', err)
     );
+  }
+
+  saveBlogPost() {
+    this.blogPostsService.saveBlogPost(this.blogPostToSave)
+      .subscribe(
+        (res: any) => {
+          this.blogPostsService.updateBlogPostToSave(new Post({}));
+          tinymce.get(this.wysiwygID).setContent('');
+          this.saveOrCancelModal.hide();
+          alert(res.data.attributes.message);
+        },
+        (err: Error) => console.error('error saving blog post: ', err)
+      );
+  }
+
+  saveAsDraft() {
+    this.blogPostToSave.published = false;
+    this.saveBlogPost();
+  }
+
+  publishNow() {
+    this.blogPostToSave.published = true;
+    this.saveBlogPost();
   }
 
 }

@@ -4,6 +4,7 @@ import { PostInfoFormComponent } from './post-info-form.component';
 import { FormsModule } from '@angular/forms';
 import { BlogPostsService } from '../../../shared/services/blog-posts.service';
 import { HttpModule } from '@angular/http';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('PostInfoFormComponent', () => {
   let component: PostInfoFormComponent;
@@ -12,7 +13,7 @@ describe('PostInfoFormComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ PostInfoFormComponent ],
-      providers: [BlogPostsService],
+      providers: [BlogPostsService, HttpClient, HttpHandler],
       imports: [FormsModule, HttpModule]
     })
     .compileComponents();
