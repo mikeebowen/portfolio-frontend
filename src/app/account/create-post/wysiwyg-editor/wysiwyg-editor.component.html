@@ -3,8 +3,8 @@
   <div class="modal-dialog btn-toolbar justify-content-between" role="toolbar"
        aria-label="Toolbar with button groups">
     <div class="btn-group mx-auto" role="group">
-      <button type="button" class="btn btn-primary">Publish Now</button>
-      <button type="button" class="btn btn-info">Save as Draft</button>
+      <button type="button" class="btn btn-primary" (click)="publishNow()">Publish Now</button>
+      <button type="button" class="btn btn-info" (click)="saveAsDraft()">Save as Draft</button>
       <button type="button" class="btn btn-warning" (click)="saveOrCancelModal.hide()">Cancel</button>
     </div>
   </div>

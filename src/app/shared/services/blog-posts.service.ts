@@ -4,9 +4,12 @@ import 'rxjs/add/operator/map';
 
 import posts from '../../../assets/posts';
 import { Post, PostType } from '../classes/post';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class BlogPostsService {
+  blogPostsUrl = '/api/content-items';
 
   private postsSource: BehaviorSubject<Post[]> = new BehaviorSubject([]);
   posts$ = this.postsSource.asObservable();
@@ -17,7 +20,7 @@ export class BlogPostsService {
   private blogPostToSaveSource: BehaviorSubject<Post> = new BehaviorSubject(new Post({}));
   blogPostToSave$ = this.blogPostToSaveSource.asObservable();
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   /**
@@ -50,4 +53,7 @@ export class BlogPostsService {
     this.blogPostToSaveSource.next(blogPost);
   }
 
+  saveBlogPost(post: Post): Observable<any> {
+    return this.http.post(this.blogPostsUrl, { contentItem: post });
+  }
 }

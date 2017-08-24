@@ -10,6 +10,7 @@ import { Post } from '../shared/classes/post';
 import { BlogPostsService } from '../shared/services/blog-posts.service';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('BlogPostsListComponent', () => {
   let component: BlogPostsListComponent;
@@ -33,7 +34,11 @@ describe('BlogPostsListComponent', () => {
       declarations: [BlogPostsListComponent],
       imports: [RouterTestingModule, PaginationModule, HttpModule, FormsModule],
       providers: [
-        { provide: ActivatedRoute, useValue: mockRouter }, BlogPostsService, PaginationConfig]
+        { provide: ActivatedRoute, useValue: mockRouter },
+        BlogPostsService,
+        PaginationConfig,
+        HttpClient,
+        HttpHandler]
     })
       .compileComponents();
   }));
