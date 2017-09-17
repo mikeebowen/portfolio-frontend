@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 import { Post } from '../shared/classes/post';
-import posts from '../../assets/posts';
+import { BlogPostsService } from '../shared/services/blog-posts.service';
+
 
 @Component({
   selector: 'app-blog-post',
@@ -10,23 +13,25 @@ import posts from '../../assets/posts';
   styleUrls: [ './blog-post.component.scss' ]
 })
 export class BlogPostComponent implements OnInit {
-  postId: string;
   post: Post;
 
-  posts: Post[];
-
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private blogPostsService: BlogPostsService) { }
 
   ngOnInit() {
-    this.posts = posts;
-    this.route.params.subscribe((params: Params) => {
-      this.postId = params.id;
-      for (const post of this.posts) {
-        if (params.id === post.uniqueTitle) {
-          this.post = post;
-        }
-      }
-    });
+
+    this.route.params
+      .flatMap((params: Params): Observable<string> => {
+        return Observable.of(params.id);
+      })
+      .flatMap((uniqueTitle: string): Observable<any> => {
+        return this.blogPostsService.getSinglePost(uniqueTitle);
+      })
+      .subscribe(
+        (res: any) => {
+          this.post = new Post(res.data.attributes);
+        },
+        (err: Error) => console.error('Error retrieving post: ', err)
+      );
 
   }
 }

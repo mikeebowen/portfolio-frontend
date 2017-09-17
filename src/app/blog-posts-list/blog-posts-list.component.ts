@@ -8,7 +8,7 @@ import { Post } from '../shared/classes/post';
 @Component({
   selector: 'app-posts-list',
   templateUrl: './blog-posts-list.component.html',
-  styleUrls: [ './blog-posts-list.component.scss' ]
+  styleUrls: ['./blog-posts-list.component.scss']
 })
 export class BlogPostsListComponent implements OnInit, OnDestroy {
   posts: Post[] = [];
@@ -16,7 +16,7 @@ export class BlogPostsListComponent implements OnInit, OnDestroy {
   maxPaginationSize = 5;
   totalNumberOfPosts: number;
   currentPage: number;
-  startIndex: number;
+  startIndex = 0;
   blogPostsSubscription: Subscription;
   blogPageCountSubscription: Subscription;
 
@@ -36,8 +36,14 @@ export class BlogPostsListComponent implements OnInit, OnDestroy {
         } else {
           this.currentPage = 1;
         }
-        this.startIndex = (this.currentPage - 1) * (this.itemsPerPage - 1);
-        this.blogPostsService.getPosts('blogPost', this.startIndex, this.startIndex + this.itemsPerPage);
+
+        if (this.currentPage === 1) {
+          this.startIndex = 0;
+        } else {
+          this.startIndex = ((this.currentPage - 1) * this.itemsPerPage) - 1;
+        }
+
+        this.blogPostsService.getPosts('blogPost', this.startIndex, this.itemsPerPage);
       },
       (err: Error) => console.error('Error retrieving query parameters : ', err)
     );
@@ -51,10 +57,13 @@ export class BlogPostsListComponent implements OnInit, OnDestroy {
       (postCount: number) => this.totalNumberOfPosts = postCount,
       (err: Error) => console.error('Error retrieving number of posts : ', err)
     );
+
+    setTimeout(() => {
+      this.currentPage = this.startIndex > 0 ? (this.startIndex + this.itemsPerPage + 1) / this.itemsPerPage : 1;
+    }, 100);
   }
 
   ngOnDestroy() {
-    // if (this.queryParamsSubscription) this.queryParamsSubscription.unsubscribe();
     if (this.blogPostsSubscription) this.blogPostsSubscription.unsubscribe();
     if (this.blogPageCountSubscription) this.blogPageCountSubscription.unsubscribe();
   }
