@@ -5,8 +5,10 @@
         <div class="col-12">
           <div class="card post-item-card">
             <div class="card-block">
-              <img [src]="post?.image?.src" [alt]="post?.image?.name" class="img-thumbnail float-left">
-              <h4 class="card-title">{{post?.title}}</h4>
+              <p class="pull-right text-muted">{{post?.createdAt | date: 'mediumDate'}}</p>
+              <a [routerLink]="post?.uniqueTitle"><img [src]="post?.image?.src" [alt]="post?.image?.name"
+                                                       class="img-thumbnail float-left"></a>
+              <a [routerLink]="post?.uniqueTitle"><h4 class="card-title">{{post?.title}}</h4></a>
               <h6 class="card-subtitle mb-2 text-muted">{{post?.subtitle}}</h6>
               <p class="card-text">{{post?.description}}</p>
               <a [routerLink]="post?.uniqueTitle" class="card-link">Read more...</a>
@@ -23,6 +25,7 @@
                   [boundaryLinks]="true"
                   [rotate]="false"
                   [(ngModel)]="currentPage"
+                  [itemsPerPage]="itemsPerPage"
                   (pageChanged)="switchPage($event)"></pagination>
     </div>
   </div>

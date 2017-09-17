@@ -16,6 +16,7 @@ export class Image {
 export type PostType = 'blogPost' | 'projectPost';
 
 interface IPostOptions {
+  createdAt?: Date;
   title?: string;
   subtitle?: string;
   author?: string;
@@ -24,9 +25,11 @@ interface IPostOptions {
   image?: Image;
   published?: boolean;
   postType?: PostType;
+  uniqueTitle?: string;
 }
 
 export class Post {
+  createdAt: Date;
   title: string;
   subtitle: string;
   author: string;
@@ -38,6 +41,7 @@ export class Post {
   postType: PostType;
 
   constructor(options: IPostOptions) {
+    this.createdAt = options.createdAt;
     this.title = options.title;
     this.subtitle = options.subtitle;
     this.author = options.author;
@@ -46,9 +50,6 @@ export class Post {
     this.image = options.image;
     this.postType = options.postType;
     this.published = options.published;
-    // TODO add timestamp for unique title in database
-    if (this.title) {
-      this.uniqueTitle = this.title.toLowerCase().trim().replace(/\s/g, '-')/* + Date.now().toString()*/;
-    }
+    this.uniqueTitle = options.uniqueTitle;
   }
 }

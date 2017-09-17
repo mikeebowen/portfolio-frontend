@@ -79,9 +79,9 @@ describe('BlogPostsListComponent', () => {
     fixture.detectChanges();
     const postDebugElements = fixture.debugElement.queryAll(By.css('.post-item-card'));
     expect(postDebugElements.length).toEqual(3);
-    expect(postDebugElements[0].nativeElement.children[0].children[1].innerHTML).toEqual('TestArticle 1 Title');
-    expect(postDebugElements[1].nativeElement.children[0].children[1].innerHTML).toEqual('TestArticle 2 Title');
-    expect(postDebugElements[2].nativeElement.children[0].children[1].innerHTML).toEqual('TestArticle 3 Title');
+    expect(postDebugElements[0].nativeElement.children[0].children[1].children[0].innerHTML).toEqual('TestArticle 1 Title');
+    expect(postDebugElements[1].nativeElement.children[0].children[1].children[0].innerHTML).toEqual('TestArticle 2 Title');
+    expect(postDebugElements[2].nativeElement.children[0].children[1].children[0].innerHTML).toEqual('TestArticle 3 Title');
   }));
 
   it('should have a method switchPage that sets the current page and calls route.navigate and scrolls to the top of the window', () => {

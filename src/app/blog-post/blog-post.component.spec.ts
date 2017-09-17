@@ -6,6 +6,8 @@ import { By } from '@angular/platform-browser';
 
 import { BlogPostComponent } from './blog-post.component';
 import { Post } from '../shared/classes/post';
+import { BlogPostsService } from '../shared/services/blog-posts.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('BlogPostComponent', () => {
   let component: BlogPostComponent;
@@ -43,7 +45,7 @@ describe('BlogPostComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ BlogPostComponent ],
-      providers: [ { provide: ActivatedRoute, useValue: mockRouter } ]
+      providers: [ { provide: ActivatedRoute, useValue: mockRouter }, BlogPostsService, HttpClient, HttpHandler ]
     })
       .compileComponents();
   }));
@@ -55,7 +57,6 @@ describe('BlogPostComponent', () => {
   });
 
   it('show the article', fakeAsync(() => {
-    // TODO: make test get post from array of posts
     component.post = new Post({
       title: 'testarticle',
       description: 'test article 1 despcription',

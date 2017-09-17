@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/map';
 
-import posts from '../../../assets/posts';
 import { Post, PostType } from '../classes/post';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -20,6 +19,12 @@ export class BlogPostsService {
   private blogPostToSaveSource: BehaviorSubject<Post> = new BehaviorSubject(new Post({}));
   blogPostToSave$ = this.blogPostToSaveSource.asObservable();
 
+  static extractPosts(data: any[]) {
+    return data.map((datum: any) => {
+      return new Post(datum.attributes);
+    });
+  }
+
   constructor(private http: HttpClient) {
   }
 
@@ -28,20 +33,27 @@ export class BlogPostsService {
    * @method getPosts
    * @param {string} postType - the type of post to return
    * @param {number} startIndex - the index to start the return from
-   * @param {number} stopBeforeIndex - the index to stop the return at before
+   * @param {number} limit - the number of items to return
    */
-  getPosts(postType: PostType, startIndex: number, stopBeforeIndex: number) {
-    const postsArr = posts;
-    this.pageCountSource.next(postsArr.length);
-    const postsForPage = postsArr
-      .filter((elem: Post) => {
-        if (elem.postType === postType) {
-          return elem;
-        }
-      })
-      .slice(startIndex, stopBeforeIndex);
+  getPosts(postType: PostType, startIndex: number, limit: number): void {
+    const params = new HttpParams()
+      .set('postType', postType.toString())
+      .set('index', startIndex.toString())
+      .set('limit', limit.toString());
 
-    this.postsSource.next(postsForPage);
+    this.http.get(this.blogPostsUrl, { params }).subscribe(
+      (res: any) => {
+        const posts = BlogPostsService.extractPosts(res.data);
+
+        this.postsSource.next(posts);
+        this.pageCountSource.next(res.meta.totalItems);
+      },
+      (err: Error) => console.error(err)
+    );
+  }
+
+  getSinglePost(uniqueTitle: string): Observable<any> {
+    return this.http.get(`${this.blogPostsUrl}/${uniqueTitle}`);
   }
 
   /**

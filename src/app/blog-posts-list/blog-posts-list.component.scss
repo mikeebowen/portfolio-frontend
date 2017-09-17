@@ -2,6 +2,16 @@
 
 .row {
 
+  a {
+    h4 {
+      color: $header-default-color;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
   .post-item-card {
     background-color: $portfolio-very-light-gray;
     border: 1px solid $portfolio-gray;
