@@ -34,12 +34,15 @@ export class BlogPostsService {
    * @param {string} postType - the type of post to return
    * @param {number} startIndex - the index to start the return from
    * @param {number} limit - the number of items to return
+   * @param {string} searchTerm - optional search query
    */
-  getPosts(postType: PostType, startIndex: number, limit: number): void {
+  getPosts(postType: PostType, startIndex: number, limit: number, searchTerm?: string): void {
+    searchTerm = searchTerm ? searchTerm : '';
     const params = new HttpParams()
       .set('postType', postType.toString())
       .set('index', startIndex.toString())
-      .set('limit', limit.toString());
+      .set('limit', limit.toString())
+      .set('searchTerm', searchTerm);
 
     this.http.get(this.blogPostsUrl, { params }).subscribe(
       (res: any) => {

@@ -19,6 +19,7 @@ export class BlogPostsListComponent implements OnInit, OnDestroy {
   startIndex = 0;
   blogPostsSubscription: Subscription;
   blogPageCountSubscription: Subscription;
+  searchTerm: string;
 
 
   constructor(private blogPostsService: BlogPostsService,
@@ -30,6 +31,7 @@ export class BlogPostsListComponent implements OnInit, OnDestroy {
     this.activatedRoute.queryParams.subscribe(
       (params: Params) => {
         const page = parseInt(params.page, 10);
+        this.searchTerm = params.searchTerm;
 
         if (typeof page === 'number' && !isNaN(page)) {
           this.currentPage = page;
@@ -43,7 +45,7 @@ export class BlogPostsListComponent implements OnInit, OnDestroy {
           this.startIndex = ((this.currentPage - 1) * this.itemsPerPage) - 1;
         }
 
-        this.blogPostsService.getPosts('blogPost', this.startIndex, this.itemsPerPage);
+        this.blogPostsService.getPosts('blogPost', this.startIndex, this.itemsPerPage, this.searchTerm);
       },
       (err: Error) => console.error('Error retrieving query parameters : ', err)
     );
@@ -71,7 +73,7 @@ export class BlogPostsListComponent implements OnInit, OnDestroy {
   switchPage(e: any): void {
     this.currentPage = e.page;
     this.router.navigate([], {
-      queryParams: { page: e.page },
+      queryParams: { page: e.page, searchTerm: this.searchTerm },
       relativeTo: this.activatedRoute
     });
     window.scrollTo(0, 0);
