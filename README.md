@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/mrbgit/portfolio-frontend.svg?branch=master)](https://travis-ci.org/mrbgit/portfolio-frontend)
+[![Coverage Status](https://coveralls.io/repos/github/mrbgit/portfolio-frontend/badge.svg?branch=master)](https://coveralls.io/github/mrbgit/portfolio-frontend?branch=master)
 # PortfolioFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.4.
