@@ -57,31 +57,35 @@ describe('BlogPostsListComponent', () => {
         description: 'test article 1 despcription',
         author: 'test author1',
         image: { src: 'assets/images/woman-with-fidget-spinner.jpeg', name: 'woman with fidget spinner' },
-        content: '<p>test content1</p>'
+        content: '<p>test content1</p>',
+        postType: 'blogPost'
       }),
       new Post({
         title: 'TestArticle 2 Title',
         description: 'test article 2 despcription',
         author: 'test author2',
         image: { src: 'assets/images/woman-with-fidget-spinner.jpeg', name: 'woman with fidget spinner' },
-        content: '<p>test content2</p>'
+        content: '<p>test content2</p>',
+        postType: 'blogPost'
       }),
       new Post({
         title: 'TestArticle 3 Title',
         description: 'test article 3 despcription',
         author: 'test author3',
         image: { src: 'assets/images/woman-with-fidget-spinner.jpeg', name: 'woman with fidget spinner' },
-        content: '<p>test content3</p>'
+        content: '<p>test content3</p>',
+        postType: 'blogPost'
       })
     ];
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
     const postDebugElements = fixture.debugElement.queryAll(By.css('.post-item-card'));
+
     expect(postDebugElements.length).toEqual(3);
-    expect(postDebugElements[0].nativeElement.children[0].children[1].children[0].innerHTML).toEqual('TestArticle 1 Title');
-    expect(postDebugElements[1].nativeElement.children[0].children[1].children[0].innerHTML).toEqual('TestArticle 2 Title');
-    expect(postDebugElements[2].nativeElement.children[0].children[1].children[0].innerHTML).toEqual('TestArticle 3 Title');
+    expect(postDebugElements[0].nativeElement.children[0].querySelector('h4').innerHTML).toEqual('TestArticle 1 Title');
+    expect(postDebugElements[1].nativeElement.children[0].querySelector('h4').innerHTML).toEqual('TestArticle 2 Title');
+    expect(postDebugElements[2].nativeElement.children[0].querySelector('h4').innerHTML).toEqual('TestArticle 3 Title');
   }));
 
   it('should have a method switchPage that sets the current page and calls route.navigate and scrolls to the top of the window', () => {
