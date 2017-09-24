@@ -38,7 +38,8 @@ describe('BlogPostsListComponent', () => {
         BlogPostsService,
         PaginationConfig,
         HttpClient,
-        HttpHandler]
+        HttpHandler
+      ]
     })
       .compileComponents();
   }));
@@ -49,7 +50,7 @@ describe('BlogPostsListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should show jumbotrons for each post', fakeAsync(() => {
+  it('should show jumbotrons for each blog post', fakeAsync(() => {
 
     component.posts = [
       new Post({

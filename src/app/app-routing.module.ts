@@ -11,48 +11,63 @@ import { LoginComponent } from './login/login.component';
 import { ProjectsComponent } from './projects/projects.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'blog',
-    children: [
-      {
-        path: '',
-        component: BlogPostsListComponent
-      },
-      {
-        path: ':id',
-        component: BlogPostComponent
-      }
-    ]
-  },
-  {
-    path: 'projects',
-    component: ProjectsComponent
-  },
-  {
-    path: 'about-me',
-    component: AboutMeComponent
-  },
-  {
-    path: 'contact',
-    component: ContactComponent
-  },
-  {
-    path: 'account',
-    component: AccountComponent
-  }
-];
+    {
+      path: '',
+      component: HomeComponent
+    },
+    {
+      path: 'login',
+      component: LoginComponent
+    },
+    {
+      path: 'blog',
+      children: [
+        {
+          path: '',
+          component: BlogPostsListComponent
+        },
+        {
+          path: ':id',
+          component: BlogPostComponent
+        }
+      ]
+    },
+    {
+      path: 'projects',
+      children: [
+        {
+          path: '',
+          component: ProjectsComponent
+        },
+        {
+          path: ':id',
+          component: BlogPostComponent
+        }
+      ]
+    },
+    {
+      path: 'about-me',
+      component:
+      AboutMeComponent
+    }
+    ,
+    {
+      path: 'contact',
+      component:
+      ContactComponent
+    }
+    ,
+    {
+      path: 'account',
+      component:
+      AccountComponent
+    }
+  ]
+;
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {
 }

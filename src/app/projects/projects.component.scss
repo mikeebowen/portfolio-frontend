@@ -8,9 +8,41 @@
     margin: 1rem;
     max-width: 50%;
   }
+
+  .card-footer {
+    border: 0;
+  }
 }
 
 .project-button {
   float: right;
   opacity: .8;
+}
+
+// Styling for bootstrap pagination component
+/deep/ .page-link {
+  background-color: transparent;
+  border: 1px solid $portfolio-aqua;
+  color: $portfolio-dark-yellow;
+
+  &:hover {
+    background-color: $portfolio-dark-teal;
+    border: 1px solid $portfolio-aqua;
+    color: $portfolio-light-gray;
+  }
+}
+
+/deep/ .page-item {
+
+  &.disabled .page-link {
+    background-color: transparent;
+    border: 1px solid $portfolio-aqua;
+    color: $portfolio-dark-yellow;
+  }
+
+  &.active .page-link {
+    background-color: $portfolio-medium-green;
+    border: 1px solid $portfolio-aqua;
+    color: $portfolio-very-light-gray;
+  }
 }
