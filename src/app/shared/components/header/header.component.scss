@@ -8,7 +8,7 @@
   height: 59px;
   margin-bottom: 0;
 
-  a {
+  a:not(.btn) {
     @include type-setting(4);
     color: $portfolio-dark-yellow;
     font-family: $site-header-font;
