@@ -7,17 +7,30 @@
     </div>
     <div class="row" role="presentation">
       <ng-container *ngFor="let project of projects">
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 d-flex  align-items-stretch" role="presentation">
           <div class="card mb-5">
             <div class="card-block">
-              <img class="card-img-top float-left" [src]="project?.image" [alt]="project?.imageDescription">
+              <img class="card-img-top float-left" [src]="project?.image.src" [alt]="project?.image.name">
               <h4 class="card-title">{{project?.title}}</h4>
               <p class="card-text">{{project?.description}}</p>
-              <a href="#" class="btn btn-success project-button">Read more</a>
+            </div>
+            <div class="card-footer">
+              <a [routerLink]="project?.uniqueTitle" class="btn btn-success project-button">Read more</a>
             </div>
           </div>
         </div>
       </ng-container>
+    </div>
+    <div class="row limit-width" role="presentation">
+      <div class="mx-auto">
+        <pagination [totalItems]="totalNumberOfPosts" class="pagination-sm"
+                    [maxSize]="maxPaginationSize"
+                    [boundaryLinks]="true"
+                    [rotate]="false"
+                    [(ngModel)]="currentPage"
+                    [itemsPerPage]="itemsPerPage"
+                    (pageChanged)="switchPage($event)"></pagination>
+      </div>
     </div>
   </div>
 </div>
