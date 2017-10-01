@@ -17,13 +17,15 @@ footer {
 nav {
 
   &.navbar {
-    align-items: flex-end;
+    align-items: flex-start;
     background-color: $portfolio-dark-green;
     border-radius: 0;
     margin-bottom: 0;
 
     &.on-homepage {
       background-color: transparent;
+      bottom: 0;
+      position: absolute;
     }
   }
 }
