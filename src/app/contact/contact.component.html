@@ -1,3 +1,22 @@
-<p>
-  contact works!
-</p>
+<div class="contact-wrapper" role="presentation">
+  <div class="container h-100" role="presentation">
+    <div class="row" role="presentation">
+      <div class="col-12">
+        <h1>Send me and email!</h1>
+      </div>
+      <div class="col-12">
+        <form method="post">
+          <div class="form-group">
+            <label for="emailHeaderInput">Header</label>
+            <input type="email" class="form-control" name="emailHeaderInput" id="emailHeaderInput" [(ngModel)]="emailSubject">
+          </div>
+          <div class="form-group">
+            <label for="emailContentInput">Content</label>
+            <textarea class="form-control" name="emailContentInput" id="emailContentInput" rows="12" [(ngModel)]="emailContent"></textarea>
+          </div>
+          <button class="btn btn-outline-primary" (click)="sendEmail()">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
