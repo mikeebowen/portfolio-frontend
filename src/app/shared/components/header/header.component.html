@@ -35,8 +35,7 @@
       </ul>
       <div class="form-wrapper my-auto" role="presentation">
         <form class="form-inline my-3 pull-right">
-          <input name="search-input" class="form-control mr-sm-3" placeholder="Search" [(ngModel)]="searchTerm">
-          <!--<button class="btn btn-success my-3 my-sm-0" (click)="searchPosts()">Search</button>-->
+          <input name="search-input" class="form-control mr-sm-3" placeholder="Search" (keyup.enter)="handleKeydownSubmit()" [(ngModel)]="searchTerm">
           <a class="btn btn-success my-3 my-sm-0" [routerLink]="['/blog']" [queryParams]="{searchTerm: searchTerm}">Search</a>
         </form>
       </div>

@@ -2,28 +2,11 @@
   <div class="row" role="presentation">
     <div class="col-8 offset-4">
       <div class="jumbotron fly-in-header">
-        <h1 class="display-3">
-          <span class="header-title" [@fadeInOut]="fadeInOutState1">G</span>
-          <span class="header-title" [@fadeInOut]="fadeInOutState2">r</span>
-          <span class="header-title" [@fadeInOut]="fadeInOutState3">y</span>
-          <span class="header-title" [@fadeInOut]="fadeInOutState4">l</span>
-          <span class="header-title" [@fadeInOut]="fadeInOutState5">l</span>
-          <span class="header-title" [@fadeInOut]="fadeInOutState6">i</span>
-          <span class="header-title" [@fadeInOut]="fadeInOutState7">d</span>
-          <span class="header-title" [@fadeInOut]="fadeInOutState8">a</span>
-          <span class="header-title" [@fadeInOut]="fadeInOutState9">e&nbsp;</span>
-          <span class="header-title" [@fadeInOut]="fadeInOutState10">C</span>
-          <span class="header-title" [@fadeInOut]="fadeInOutState11">r</span>
-          <span class="header-title" [@fadeInOut]="fadeInOutState12">e</span>
-          <span class="header-title" [@fadeInOut]="fadeInOutState13">a</span>
-          <span class="header-title" [@fadeInOut]="fadeInOutState14">t</span>
-          <span class="header-title" [@fadeInOut]="fadeInOutState15">i</span>
-          <span class="header-title" [@fadeInOut]="fadeInOutState16">o</span>
-          <span class="header-title" [@fadeInOut]="fadeInOutState17">n</span>
-          <span class="header-title" [@fadeInOut]="fadeInOutState18">s</span>
-        </h1>
-        <p [@fadeInOut]="fadeInOutState19" class="lead">Spicy jalapeno bacon ipsum dolor amet turducken ball tip cupim short ribs chicken shankle. Sirloin pork turkey, tail landjaeger alcatra turducken cow meatball cupim venison pig kielbasa. Swine meatball tenderloin shankle pastrami.</p>
-        <img  [@fadeInOut]="fadeInOutState20" [@wobble]="wobbleState" (@wobble.done)="resetWobble()" (mouseover)="triggerAnimation()" [src]="'assets/images/grasshopper-dark-yellow.png'" alt="cricket" class="mx-auto d-block">
+        <h1 class="display-3 header-title">{{siteTitle}}</h1>
+        <p class="lead">{{pageContent}}</p>
+        <img [@wobble]="wobbleState" (@wobble.done)="resetWobble()"
+             (mouseover)="triggerAnimation()" [src]="'assets/images/grasshopper-dark-yellow.png'" alt="cricket"
+             class="mx-auto d-block">
       </div>
     </div>
   </div>

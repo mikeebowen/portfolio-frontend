@@ -5,10 +5,13 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
+import { SiteInfoService } from './shared/services/site-info.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      providers: [SiteInfoService, HttpClient, HttpHandler],
       imports: [
         RouterTestingModule,
         FormsModule

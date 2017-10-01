@@ -64,7 +64,7 @@ describe('BlogPostComponent', () => {
       image: { src: 'assets/images/woman-with-fidget-spinner.jpeg', name: 'woman with fidget spinner' },
       content: '<p>test content1</p>'
     });
-    // component.posts = testPosts;
+
     fixture.detectChanges();
     tick();
     fixture.detectChanges();

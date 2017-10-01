@@ -52,6 +52,7 @@ describe('BlogPostsListComponent', () => {
 
   it('should show jumbotrons for each blog post', fakeAsync(() => {
 
+
     component.posts = [
       new Post({
         title: 'TestArticle 1 Title',

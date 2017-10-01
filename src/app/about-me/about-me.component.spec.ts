@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AboutMeComponent } from './about-me.component';
+import { SiteInfoService } from '../shared/services/site-info.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('AboutMeComponent', () => {
   let component: AboutMeComponent;
@@ -8,6 +10,7 @@ describe('AboutMeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      providers: [SiteInfoService, HttpClient, HttpHandler],
       declarations: [ AboutMeComponent ]
     })
     .compileComponents();

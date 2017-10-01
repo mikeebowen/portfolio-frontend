@@ -97,7 +97,5 @@ describe('FileAssetsService', () => {
           url: filesPath,
           method: 'GET'
         }).flush(fakeResponse);
-      })
-    )
-  );
+      })));
 });

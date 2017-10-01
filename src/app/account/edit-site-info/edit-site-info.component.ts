@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-site-info.component.scss']
 })
 export class EditSiteInfoComponent implements OnInit {
+  siteTitle: string;
 
   constructor() { }
 

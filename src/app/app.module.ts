@@ -32,6 +32,7 @@ import { EditAccountInfoComponent } from './account/edit-account-info/edit-accou
 // services
 import { BlogPostsService } from './shared/services/blog-posts.service';
 import { FileAssetsService } from './shared/services/file-assets.service';
+import { SiteInfoService } from './shared/services/site-info.service';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,7 @@ import { FileAssetsService } from './shared/services/file-assets.service';
     PaginationModule.forRoot(),
     ModalModule.forRoot()
   ],
-  providers: [BlogPostsService, FileAssetsService],
+  providers: [BlogPostsService, FileAssetsService, SiteInfoService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
