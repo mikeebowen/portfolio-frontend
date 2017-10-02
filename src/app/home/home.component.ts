@@ -16,7 +16,7 @@ import { SiteInfoService } from '../shared/services/site-info.service';
   host: { '[@slideInOut]': '' }
 })
 export class HomeComponent implements OnInit {
-  siteTitle: string;
+  pageTitle: string;
   pageContent: string;
   wobbleState = 'inactive';
 
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
     this.siteInfoService.siteInfo$.subscribe(
       (siteInfo: any) => {
         if (siteInfo && siteInfo.homepage) {
-          this.siteTitle = siteInfo.homepage.siteTitle ? siteInfo.homepage.siteTitle : 'no site title found';
+          this.pageTitle = siteInfo.homepage.pageTitle ? siteInfo.homepage.pageTitle : 'no site title found';
           this.pageContent = siteInfo.homepage.pageContent ? siteInfo.homepage.pageContent : 'no homepage content found';
         }
       },

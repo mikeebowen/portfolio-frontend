@@ -56,13 +56,14 @@ export class BlogPostsListComponent implements OnInit, OnDestroy {
     );
 
     this.blogPageCountSubscription = this.blogPostsService.pageCount$.subscribe(
-      (postCount: number) => this.totalNumberOfPosts = postCount,
+      (postCount: number) => {
+        this.totalNumberOfPosts = postCount;
+        setTimeout(() => {
+          this.currentPage = this.startIndex > 0 ? (this.startIndex + this.itemsPerPage + 1) / this.itemsPerPage : 1;
+        }, this.totalNumberOfPosts);
+      },
       (err: Error) => console.error('Error retrieving number of posts : ', err)
     );
-
-    setTimeout(() => {
-      this.currentPage = this.startIndex > 0 ? (this.startIndex + this.itemsPerPage + 1) / this.itemsPerPage : 1;
-    }, 100);
   }
 
   ngOnDestroy() {

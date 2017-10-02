@@ -12,7 +12,7 @@ describe('HomeComponent', () => {
   let fixture: ComponentFixture<HomeComponent>;
   const testHomePageInfo = {
     homepage: {
-      siteTitle: 'tacocat',
+      pageTitle: 'tacocat',
       pageContent: 'hola mundo'
     }
   };
@@ -41,8 +41,8 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should set the siteTitle and homepage content when provided from the database', () => {
-    expect(component.siteTitle).toEqual(testHomePageInfo.homepage.siteTitle);
+  it('should set the pageTitle and homepage content when provided from the database', () => {
+    expect(component.pageTitle).toEqual(testHomePageInfo.homepage.pageTitle);
     expect(component.pageContent).toEqual(testHomePageInfo.homepage.pageContent);
   });
 

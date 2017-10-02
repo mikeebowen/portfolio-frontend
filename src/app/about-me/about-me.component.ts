@@ -8,6 +8,7 @@ import { SiteInfoService } from '../shared/services/site-info.service';
 })
 export class AboutMeComponent implements OnInit {
   pageContent: string;
+  pageTitle: string;
 
   constructor(private siteInfoService: SiteInfoService) {
   }
@@ -17,7 +18,8 @@ export class AboutMeComponent implements OnInit {
       .subscribe(
         siteInfo => {
           if (siteInfo && siteInfo.about) {
-            this.pageContent = siteInfo.about.pageContent ? siteInfo.about.pageContent : 'no about page content found';
+            this.pageContent = siteInfo.about.pageContent ? siteInfo.about.pageContent : 'no page content found';
+            this.pageTitle = siteInfo.about.pageTitle ? siteInfo.about.pageTitle : 'no page title found';
           }
         },
         (err: Error) => console.error(err));

@@ -2,7 +2,7 @@
   <div class="row" role="presentation">
     <div class="col-8 offset-4">
       <div class="jumbotron fly-in-header">
-        <h1 class="display-3 header-title">{{siteTitle}}</h1>
+        <h1 class="display-3 header-title">{{pageTitle}}</h1>
         <p class="lead">{{pageContent}}</p>
         <img [@wobble]="wobbleState" (@wobble.done)="resetWobble()"
              (mouseover)="triggerAnimation()" [src]="'assets/images/grasshopper-dark-yellow.png'" alt="cricket"

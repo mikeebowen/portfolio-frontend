@@ -20,7 +20,7 @@ export class SiteInfoService {
           const siteInfo: any = {};
 
           res.data.forEach((pageInfo: any) => {
-            siteInfo[pageInfo.attributes.pageName] = new PageInfo(pageInfo.attributes);
+            siteInfo[pageInfo.attributes.pageType] = new PageInfo(pageInfo.attributes);
           });
           this.siteInfoSource.next(siteInfo);
 

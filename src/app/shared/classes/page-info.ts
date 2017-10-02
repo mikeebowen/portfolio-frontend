@@ -1,17 +1,17 @@
 interface IPageInfo {
+  pageTitle?: string;
+  pageType: string;
   pageContent?: string;
-  siteTitle?: string;
-  pageName: string;
 }
 
 export class PageInfo {
   pageContent: string;
-  siteTitle: string;
-  pageName: string;
+  pageType: string;
+  pageTitle: string;
 
-  constructor(data: IPageInfo) {
-    this.pageContent = data.pageContent;
-    this.siteTitle = data.siteTitle;
-    this.pageName = data.pageName;
+  constructor(option: IPageInfo) {
+    this.pageType = option.pageType;
+    this.pageContent = option.pageContent;
+    this.pageTitle = option.pageTitle;
   }
 }

@@ -26,23 +26,23 @@ describe('SiteInfoService', () => {
           'data': [
             {
               type: 'fileInfo',
-              attributes: { pageName: 'homepage', pageContent: 'blah test', siteTitle: 'test site' }
+              attributes: { pageType: 'homepage', pageContent: 'blah test', pageTitle: 'Home Pate' }
             },
             {
               type: 'fileInfo',
-              attributes: { pageName: 'about', pageContent: 'blah test 2', siteTitle: 'test site' }
+              attributes: { pageType: 'about', pageContent: 'blah test 2', pageTitle: 'About Page' }
             },
             {
               type: 'fileInfo',
-              attributes: { pageName: 'contact', pageContent: 'blah test 3', siteTitle: 'test site' }
+              attributes: { pageType: 'contact', pageContent: 'blah test 3', pageTitle: 'Contact Tacos' }
             }
           ],
           'status': 200
         };
         const comparisonData = {
-          homepage: new PageInfo({ pageName: 'homepage', pageContent: 'blah test', siteTitle: 'test site' }),
-          about: new PageInfo({ pageName: 'about', pageContent: 'blah test 2', siteTitle: 'test site' }),
-          contact: new PageInfo({ pageName: 'contact', pageContent: 'blah test 3', siteTitle: 'test site' })
+          homepage: new PageInfo({ pageType: 'homepage', pageContent: 'blah test', pageTitle: 'Home Pate' }),
+          about: new PageInfo({ pageType: 'about', pageContent: 'blah test 2', pageTitle: 'About Page' }),
+          contact: new PageInfo({ pageType: 'contact', pageContent: 'blah test 3', pageTitle: 'Contact Tacos' })
         };
         spyOn(siteInfoService.siteInfoSource, 'next');
 

@@ -2,8 +2,5 @@
 
 .post-container {
   background-color: $portfolio-white;
-}
-
-.main-content {
-  background-color: $portfolio-white;
+  min-height: calc(#{'83vh'});
 }
