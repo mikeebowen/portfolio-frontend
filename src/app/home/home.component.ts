@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.siteInfoService.getHomepageInfo();
     setTimeout(() => this.wobbleState = 'active', 1225);
 
     this.siteInfoService.siteInfo$.subscribe(
