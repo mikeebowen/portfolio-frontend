@@ -20,19 +20,14 @@ import { ProjectsComponent } from './projects/projects.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { ContactComponent } from './contact/contact.component';
-import { CreatePostComponent } from './account/create-post/create-post.component';
-import { WysiwygEditorComponent } from './account/create-post/wysiwyg-editor/wysiwyg-editor.component';
-import { PostInfoFormComponent } from './account/create-post/post-info-form/post-info-form.component';
-import { AccountComponent } from './account/account.component';
-import { AccountHeaderComponent } from './account/account-header/account-header.component';
-import { EditSiteInfoComponent } from './account/edit-site-info/edit-site-info.component';
-import { EditAboutContentComponent } from './account/edit-about-content/edit-about-content.component';
-import { EditAccountInfoComponent } from './account/edit-account-info/edit-account-info.component';
 
 // services
 import { BlogPostsService } from './shared/services/blog-posts.service';
 import { FileAssetsService } from './shared/services/file-assets.service';
 import { SiteInfoService } from './shared/services/site-info.service';
+
+// modules
+import { AccountModule } from './account/account.module';
 
 @NgModule({
   declarations: [
@@ -45,15 +40,7 @@ import { SiteInfoService } from './shared/services/site-info.service';
     BlogPostComponent,
     LoginComponent,
     AboutMeComponent,
-    ContactComponent,
-    CreatePostComponent,
-    WysiwygEditorComponent,
-    PostInfoFormComponent,
-    AccountComponent,
-    AccountHeaderComponent,
-    EditSiteInfoComponent,
-    EditAboutContentComponent,
-    EditAccountInfoComponent
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +50,8 @@ import { SiteInfoService } from './shared/services/site-info.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     PaginationModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    AccountModule
   ],
   providers: [BlogPostsService, FileAssetsService, SiteInfoService],
   bootstrap: [AppComponent]

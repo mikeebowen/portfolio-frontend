@@ -1,6 +1,7 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { wobble, fadeInOut, slideInOut } from '../shared/animations/index';
 import { SiteInfoService } from '../shared/services/site-info.service';
+import { Subscription } from 'rxjs/Subscription';
 
 //noinspection TsLint
 @Component({
@@ -15,10 +16,11 @@ import { SiteInfoService } from '../shared/services/site-info.service';
   // tslint:disable-next-line:use-host-property-decorator
   host: { '[@slideInOut]': '' }
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   pageTitle: string;
   pageContent: string;
   wobbleState = 'inactive';
+  siteInfoSubscription: Subscription;
 
   constructor(private zone: NgZone, private siteInfoService: SiteInfoService) {
   }
@@ -26,7 +28,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => this.wobbleState = 'active', 1225);
 
-    this.siteInfoService.siteInfo$.subscribe(
+    this.siteInfoSubscription = this.siteInfoService.siteInfo$.subscribe(
       (siteInfo: any) => {
         if (siteInfo && siteInfo.homepage) {
           this.pageTitle = siteInfo.homepage.pageTitle ? siteInfo.homepage.pageTitle : 'no site title found';
@@ -37,6 +39,12 @@ export class HomeComponent implements OnInit {
         console.error(err);
       }
     );
+  }
+
+  ngOnDestroy() {
+    if (this.siteInfoSubscription) {
+      this.siteInfoSubscription.unsubscribe();
+    }
   }
 
   triggerAnimation() {
